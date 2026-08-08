@@ -1,0 +1,16 @@
+fastapi>=0.115
+uvicorn[standard]>=0.32
+pydantic>=2.9
+pydantic-settings>=2.5
+python-dotenv>=1.0
+httpx>=0.27
+
+# 테스트
+pytest>=8.0
+
+# --- 추후 활성화 (provider 확정/기능 구현 시 주석 해제) ---
+# anthropic>=0.39         # LLM_PROVIDER=claude
+# openai>=1.40            # LLM_PROVIDER=openai
+# deepgram-sdk>=3.0       # STT
+# psycopg[binary]>=3.2    # Supabase pgvector 조회
+# pgvector>=0.3
