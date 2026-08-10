@@ -1,0 +1,74 @@
+{
+  "KR": {
+    "name": "South Korea",
+    "hofstede": {
+      "PDI": 60,
+      "IDV": 18,
+      "MAS": 39,
+      "UAI": 85,
+      "LTO": 100,
+      "IVR": 29
+    },
+    "culturemap": {
+      "communicating": "high-context",
+      "evaluating": "indirect negative feedback",
+      "leading": "hierarchical",
+      "disagreeing": "avoids confrontation",
+      "trusting": "relationship-based"
+    }
+  },
+  "VN": {
+    "name": "Vietnam",
+    "hofstede": {
+      "PDI": 70,
+      "IDV": 20,
+      "MAS": 40,
+      "UAI": 30,
+      "LTO": 57,
+      "IVR": 35
+    },
+    "culturemap": {
+      "communicating": "high-context",
+      "evaluating": "indirect negative feedback",
+      "leading": "hierarchical",
+      "disagreeing": "avoids confrontation",
+      "trusting": "relationship-based"
+    }
+  },
+  "CN": {
+    "name": "China",
+    "hofstede": {
+      "PDI": 80,
+      "IDV": 20,
+      "MAS": 66,
+      "UAI": 30,
+      "LTO": 87,
+      "IVR": 24
+    },
+    "culturemap": {
+      "communicating": "high-context",
+      "evaluating": "indirect negative feedback",
+      "leading": "hierarchical",
+      "disagreeing": "avoids confrontation",
+      "trusting": "relationship-based"
+    }
+  },
+  "US": {
+    "name": "United States",
+    "hofstede": {
+      "PDI": 40,
+      "IDV": 91,
+      "MAS": 62,
+      "UAI": 46,
+      "LTO": 26,
+      "IVR": 68
+    },
+    "culturemap": {
+      "communicating": "low-context",
+      "evaluating": "direct negative feedback (softened)",
+      "leading": "egalitarian",
+      "disagreeing": "confrontation acceptable",
+      "trusting": "task-based"
+    }
+  }
+}

@@ -11,7 +11,12 @@ def test_health():
     assert r.json()["status"] == "ok"
 
 
-def test_analyze_stub_no_risk():
+def test_analyze_stub_no_risk(monkeypatch):
+    # 게이트를 갈아끼워 임베딩·DB 없이 엔드포인트 계약(200/has_risk/translations)만 검증.
+    async def no_risk(_req):
+        return False
+
+    monkeypatch.setattr("app.services.analyze.service.passes_gate", no_risk)
     payload = {
         "utterance_id": "u1",
         "meeting_id": "m1",
