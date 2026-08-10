@@ -10,9 +10,12 @@ class Settings(BaseSettings):
         env_file=".env", env_file_encoding="utf-8", extra="ignore"
     )
 
-    # LLM (Claude vs OpenAI — 미확정. provider 스위치로 처리)
-    llm_provider: str = "claude"
+    # LLM (미확정. provider 스위치로 처리 — openai | gemini | claude)
+    #  - openai/gemini: OpenAI 호환 SDK 공용(base_url만 분기)
+    #  - claude: anthropic SDK 별도
+    llm_provider: str = "openai"
     llm_api_key: str = ""
+    llm_model: str = ""  # 빈 값이면 provider 기본 모델 사용 (app/core/llm.py)
 
     # STT (Deepgram)
     stt_provider: str = "deepgram"

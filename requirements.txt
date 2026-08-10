@@ -10,10 +10,12 @@ fastembed>=0.4          # 로컬 다국어 임베딩 (ONNX)
 psycopg[binary]>=3.2    # Supabase pgvector 조회
 pgvector>=0.3
 
+# LLM (provider 스위치 — openai/gemini는 openai SDK 공용)
+openai>=1.40            # LLM_PROVIDER=openai | gemini(호환 엔드포인트)
+anthropic>=0.39         # LLM_PROVIDER=claude
+
 # 테스트
 pytest>=8.0
 
-# --- 추후 활성화 (provider 확정/기능 구현 시 주석 해제) ---
-# anthropic>=0.39         # LLM_PROVIDER=claude
-# openai>=1.40            # LLM_PROVIDER=openai
+# --- 추후 활성화 (기능 구현 시 주석 해제) ---
 # deepgram-sdk>=3.0       # STT
