@@ -21,6 +21,18 @@ class Settings(BaseSettings):
     # Supabase pgvector (culture_corpus 조회용)
     supabase_db_url: str = ""
 
+    # 임베딩 (로컬 fastembed, 다국어) — 게이트·코퍼스 공용
+    embed_model: str = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+    embed_dim: int = 384
+
+    # 오해 감지 게이트 튜닝
+    # ⚠️ 캘리브레이션 값 — 코퍼스 적재 후 테스트셋(#8)으로 F1 최적점을 찾아 확정해야 함.
+    #    현 다국어 MiniLM은 교차언어 절대 유사도가 낮음(관련≈0.18 vs 무관≈0.15)이라
+    #    변별 마진이 얇다. 재현율/정밀도 부족 시 multilingual-e5-large(query:/passage: 프리픽스)로 교체 검토.
+    gate_base_threshold: float = 0.30  # 기본 유사도 문턱(잠정)
+    gate_distance_sensitivity: float = 0.05  # 문화가 멀수록 문턱 낮춤(민감)
+    gate_top_k: int = 5
+
 
 @lru_cache
 def get_settings() -> Settings:

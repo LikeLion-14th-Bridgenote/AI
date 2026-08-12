@@ -19,3 +19,6 @@ env/
 # IDE
 .idea/
 .vscode/
+
+# 원재료 데이터셋 (CultureBank/NormBank) — 커밋 금지
+data/raw/
