@@ -202,3 +202,102 @@
 {"culture": "SG", "note_type": "직설성", "rule_text": "Despite low uncertainty avoidance (UAI 8), interpersonal messaging stays indirect to keep harmony.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "sg-0013"}
 {"culture": "SG", "note_type": "직설성", "rule_text": "Multicultural context (Chinese/Malay/Indian/Western) means register shifts by counterpart — read the person, not just the words.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "sg-0014"}
 {"culture": "SG", "note_type": "피드백", "rule_text": "A mild or roundabout comment can carry a stronger underlying objection than its wording suggests.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "sg-0015"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "네, 검토해보겠습니다", "entry_type": "risk_seed", "source": "curated", "id": "kr-0046"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "생각해보겠습니다", "entry_type": "risk_seed", "source": "curated", "id": "kr-0047"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "한번 보겠습니다", "entry_type": "risk_seed", "source": "curated", "id": "kr-0048"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "고민해보겠습니다", "entry_type": "risk_seed", "source": "curated", "id": "kr-0049"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "그건 좀 어려울 것 같은데요", "entry_type": "risk_seed", "source": "curated", "id": "kr-0050"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "좀 애매한데요", "entry_type": "risk_seed", "source": "curated", "id": "kr-0051"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "글쎄요, 상황을 봐야 할 것 같아요", "entry_type": "risk_seed", "source": "curated", "id": "kr-0052"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "최대한 해보겠습니다", "entry_type": "risk_seed", "source": "curated", "id": "kr-0053"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "일정이 좀 타이트하네요", "entry_type": "risk_seed", "source": "curated", "id": "kr-0054"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "네네 알겠습니다", "entry_type": "risk_seed", "source": "curated", "id": "kr-0055"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "긍정적으로 검토하겠습니다", "entry_type": "risk_seed", "source": "curated", "id": "kr-0056"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "다음에 기회가 되면", "entry_type": "risk_seed", "source": "curated", "id": "kr-0057"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "좀 더 논의가 필요할 것 같습니다", "entry_type": "risk_seed", "source": "curated", "id": "kr-0058"}
+{"culture": "JP", "note_type": "위험표현", "rule_text": "検討します", "entry_type": "risk_seed", "source": "curated", "id": "jp-0017"}
+{"culture": "JP", "note_type": "위험표현", "rule_text": "検討させていただきます", "entry_type": "risk_seed", "source": "curated", "id": "jp-0018"}
+{"culture": "JP", "note_type": "위험표현", "rule_text": "難しいかもしれません", "entry_type": "risk_seed", "source": "curated", "id": "jp-0019"}
+{"culture": "JP", "note_type": "위험표현", "rule_text": "ちょっと厳しいですね", "entry_type": "risk_seed", "source": "curated", "id": "jp-0020"}
+{"culture": "JP", "note_type": "위험표현", "rule_text": "前向きに検討します", "entry_type": "risk_seed", "source": "curated", "id": "jp-0021"}
+{"culture": "JP", "note_type": "위험표현", "rule_text": "考えておきます", "entry_type": "risk_seed", "source": "curated", "id": "jp-0022"}
+{"culture": "JP", "note_type": "위험표현", "rule_text": "善処します", "entry_type": "risk_seed", "source": "curated", "id": "jp-0023"}
+{"culture": "JP", "note_type": "위험표현", "rule_text": "そうですね…（間）", "entry_type": "risk_seed", "source": "curated", "id": "jp-0024"}
+{"culture": "VN", "note_type": "위험표현", "rule_text": "để tôi xem xét", "entry_type": "risk_seed", "source": "curated", "id": "vn-0024"}
+{"culture": "VN", "note_type": "위험표현", "rule_text": "có thể hơi khó", "entry_type": "risk_seed", "source": "curated", "id": "vn-0025"}
+{"culture": "VN", "note_type": "위험표현", "rule_text": "tôi sẽ cố gắng", "entry_type": "risk_seed", "source": "curated", "id": "vn-0026"}
+{"culture": "VN", "note_type": "위험표현", "rule_text": "vâng (dạ) — chỉ là lịch sự", "entry_type": "risk_seed", "source": "curated", "id": "vn-0027"}
+{"culture": "VN", "note_type": "위험표현", "rule_text": "để tôi kiểm tra lại", "entry_type": "risk_seed", "source": "curated", "id": "vn-0028"}
+{"culture": "VN", "note_type": "위험표현", "rule_text": "chắc là được", "entry_type": "risk_seed", "source": "curated", "id": "vn-0029"}
+{"culture": "CN", "note_type": "위험표현", "rule_text": "我再看看", "entry_type": "risk_seed", "source": "curated", "id": "cn-0041"}
+{"culture": "CN", "note_type": "위험표현", "rule_text": "考虑一下", "entry_type": "risk_seed", "source": "curated", "id": "cn-0042"}
+{"culture": "CN", "note_type": "위험표현", "rule_text": "以后再说", "entry_type": "risk_seed", "source": "curated", "id": "cn-0043"}
+{"culture": "CN", "note_type": "위험표현", "rule_text": "有点难", "entry_type": "risk_seed", "source": "curated", "id": "cn-0044"}
+{"culture": "CN", "note_type": "위험표현", "rule_text": "研究研究", "entry_type": "risk_seed", "source": "curated", "id": "cn-0045"}
+{"culture": "CN", "note_type": "위험표현", "rule_text": "尽量吧", "entry_type": "risk_seed", "source": "curated", "id": "cn-0046"}
+{"culture": "CN", "note_type": "위험표현", "rule_text": "再说吧", "entry_type": "risk_seed", "source": "curated", "id": "cn-0047"}
+{"culture": "IN", "note_type": "위험표현", "rule_text": "I will try my best", "entry_type": "risk_seed", "source": "curated", "id": "in-0016"}
+{"culture": "IN", "note_type": "위험표현", "rule_text": "we will see", "entry_type": "risk_seed", "source": "curated", "id": "in-0017"}
+{"culture": "IN", "note_type": "위험표현", "rule_text": "let me check and revert", "entry_type": "risk_seed", "source": "curated", "id": "in-0018"}
+{"culture": "IN", "note_type": "위험표현", "rule_text": "it should be possible", "entry_type": "risk_seed", "source": "curated", "id": "in-0019"}
+{"culture": "IN", "note_type": "위험표현", "rule_text": "I'll do the needful", "entry_type": "risk_seed", "source": "curated", "id": "in-0020"}
+{"culture": "IN", "note_type": "위험표현", "rule_text": "maybe, let's see", "entry_type": "risk_seed", "source": "curated", "id": "in-0021"}
+{"culture": "US", "note_type": "위험표현", "rule_text": "that could be better", "entry_type": "risk_seed", "source": "curated", "id": "us-0021"}
+{"culture": "US", "note_type": "위험표현", "rule_text": "I have some concerns", "entry_type": "risk_seed", "source": "curated", "id": "us-0022"}
+{"culture": "US", "note_type": "위험표현", "rule_text": "let's take this offline", "entry_type": "risk_seed", "source": "curated", "id": "us-0023"}
+{"culture": "US", "note_type": "위험표현", "rule_text": "interesting, let me think about it", "entry_type": "risk_seed", "source": "curated", "id": "us-0024"}
+{"culture": "GB", "note_type": "위험표현", "rule_text": "I'll bear it in mind", "entry_type": "risk_seed", "source": "curated", "id": "gb-0016"}
+{"culture": "GB", "note_type": "위험표현", "rule_text": "that's quite interesting", "entry_type": "risk_seed", "source": "curated", "id": "gb-0017"}
+{"culture": "GB", "note_type": "위험표현", "rule_text": "with the greatest respect", "entry_type": "risk_seed", "source": "curated", "id": "gb-0018"}
+{"culture": "GB", "note_type": "위험표현", "rule_text": "it's not bad", "entry_type": "risk_seed", "source": "curated", "id": "gb-0019"}
+{"culture": "GB", "note_type": "위험표현", "rule_text": "we should do that sometime", "entry_type": "risk_seed", "source": "curated", "id": "gb-0020"}
+{"culture": "GB", "note_type": "위험표현", "rule_text": "I'm not entirely sure that's wise", "entry_type": "risk_seed", "source": "curated", "id": "gb-0021"}
+{"culture": "DE", "note_type": "위험표현", "rule_text": "das ist schwierig", "entry_type": "risk_seed", "source": "curated", "id": "de-0016"}
+{"culture": "DE", "note_type": "위험표현", "rule_text": "wir werden sehen", "entry_type": "risk_seed", "source": "curated", "id": "de-0017"}
+{"culture": "SG", "note_type": "위험표현", "rule_text": "will try lah", "entry_type": "risk_seed", "source": "curated", "id": "sg-0016"}
+{"culture": "SG", "note_type": "위험표현", "rule_text": "can can, let me check", "entry_type": "risk_seed", "source": "curated", "id": "sg-0017"}
+{"culture": "SG", "note_type": "위험표현", "rule_text": "we'll get back to you", "entry_type": "risk_seed", "source": "curated", "id": "sg-0018"}
+{"culture": "SG", "note_type": "위험표현", "rule_text": "a bit tricky leh", "entry_type": "risk_seed", "source": "curated", "id": "sg-0019"}
+{"culture": "SG", "note_type": "위험표현", "rule_text": "see how first", "entry_type": "risk_seed", "source": "curated", "id": "sg-0020"}
+{"culture": "KR", "note_type": "정상", "rule_text": "파일 첨부했습니다", "entry_type": "neutral_seed", "source": "curated", "id": "kr-0059"}
+{"culture": "KR", "note_type": "정상", "rule_text": "회의는 3시에 시작합니다", "entry_type": "neutral_seed", "source": "curated", "id": "kr-0060"}
+{"culture": "KR", "note_type": "정상", "rule_text": "다음 회의는 금요일입니다", "entry_type": "neutral_seed", "source": "curated", "id": "kr-0061"}
+{"culture": "KR", "note_type": "정상", "rule_text": "화면 공유하겠습니다", "entry_type": "neutral_seed", "source": "curated", "id": "kr-0062"}
+{"culture": "KR", "note_type": "정상", "rule_text": "안녕하세요 회의 시작하겠습니다", "entry_type": "neutral_seed", "source": "curated", "id": "kr-0063"}
+{"culture": "KR", "note_type": "정상", "rule_text": "감사합니다 수고하셨습니다", "entry_type": "neutral_seed", "source": "curated", "id": "kr-0064"}
+{"culture": "KR", "note_type": "정상", "rule_text": "예산은 5천만 원입니다", "entry_type": "neutral_seed", "source": "curated", "id": "kr-0065"}
+{"culture": "KR", "note_type": "정상", "rule_text": "테스트 커버리지 85%입니다", "entry_type": "neutral_seed", "source": "curated", "id": "kr-0066"}
+{"culture": "KR", "note_type": "정상", "rule_text": "자료 메일로 보냈습니다", "entry_type": "neutral_seed", "source": "curated", "id": "kr-0067"}
+{"culture": "KR", "note_type": "정상", "rule_text": "10분 후에 다시 시작하겠습니다", "entry_type": "neutral_seed", "source": "curated", "id": "kr-0068"}
+{"culture": "US", "note_type": "정상", "rule_text": "The build passed all tests", "entry_type": "neutral_seed", "source": "curated", "id": "us-0025"}
+{"culture": "US", "note_type": "정상", "rule_text": "Please find the report attached", "entry_type": "neutral_seed", "source": "curated", "id": "us-0026"}
+{"culture": "US", "note_type": "정상", "rule_text": "The deadline is Monday", "entry_type": "neutral_seed", "source": "curated", "id": "us-0027"}
+{"culture": "US", "note_type": "정상", "rule_text": "Our office is on the third floor", "entry_type": "neutral_seed", "source": "curated", "id": "us-0028"}
+{"culture": "US", "note_type": "정상", "rule_text": "I've pushed the changes", "entry_type": "neutral_seed", "source": "curated", "id": "us-0029"}
+{"culture": "US", "note_type": "정상", "rule_text": "Let's start the meeting", "entry_type": "neutral_seed", "source": "curated", "id": "us-0030"}
+{"culture": "US", "note_type": "정상", "rule_text": "The budget is fifty thousand", "entry_type": "neutral_seed", "source": "curated", "id": "us-0031"}
+{"culture": "US", "note_type": "정상", "rule_text": "Here's the agenda for today", "entry_type": "neutral_seed", "source": "curated", "id": "us-0032"}
+{"culture": "JP", "note_type": "정상", "rule_text": "資料を添付しました", "entry_type": "neutral_seed", "source": "curated", "id": "jp-0025"}
+{"culture": "JP", "note_type": "정상", "rule_text": "会議は3時からです", "entry_type": "neutral_seed", "source": "curated", "id": "jp-0026"}
+{"culture": "JP", "note_type": "정상", "rule_text": "画面を共有します", "entry_type": "neutral_seed", "source": "curated", "id": "jp-0027"}
+{"culture": "JP", "note_type": "정상", "rule_text": "お疲れ様でした", "entry_type": "neutral_seed", "source": "curated", "id": "jp-0028"}
+{"culture": "VN", "note_type": "정상", "rule_text": "tôi đã đính kèm tệp", "entry_type": "neutral_seed", "source": "curated", "id": "vn-0030"}
+{"culture": "VN", "note_type": "정상", "rule_text": "cuộc họp lúc 3 giờ", "entry_type": "neutral_seed", "source": "curated", "id": "vn-0031"}
+{"culture": "VN", "note_type": "정상", "rule_text": "tôi sẽ chia sẻ màn hình", "entry_type": "neutral_seed", "source": "curated", "id": "vn-0032"}
+{"culture": "CN", "note_type": "정상", "rule_text": "文件已附上", "entry_type": "neutral_seed", "source": "curated", "id": "cn-0048"}
+{"culture": "CN", "note_type": "정상", "rule_text": "会议三点开始", "entry_type": "neutral_seed", "source": "curated", "id": "cn-0049"}
+{"culture": "CN", "note_type": "정상", "rule_text": "我来共享屏幕", "entry_type": "neutral_seed", "source": "curated", "id": "cn-0050"}
+{"culture": "CN", "note_type": "정상", "rule_text": "预算是五千万", "entry_type": "neutral_seed", "source": "curated", "id": "cn-0051"}
+{"culture": "GB", "note_type": "정상", "rule_text": "I've attached the file", "entry_type": "neutral_seed", "source": "curated", "id": "gb-0022"}
+{"culture": "GB", "note_type": "정상", "rule_text": "the meeting starts at three", "entry_type": "neutral_seed", "source": "curated", "id": "gb-0023"}
+{"culture": "GB", "note_type": "정상", "rule_text": "let's begin", "entry_type": "neutral_seed", "source": "curated", "id": "gb-0024"}
+{"culture": "GB", "note_type": "정상", "rule_text": "I've sent the report", "entry_type": "neutral_seed", "source": "curated", "id": "gb-0025"}
+{"culture": "DE", "note_type": "정상", "rule_text": "die Datei ist angehängt", "entry_type": "neutral_seed", "source": "curated", "id": "de-0018"}
+{"culture": "DE", "note_type": "정상", "rule_text": "das Meeting beginnt um drei", "entry_type": "neutral_seed", "source": "curated", "id": "de-0019"}
+{"culture": "DE", "note_type": "정상", "rule_text": "ich teile den Bildschirm", "entry_type": "neutral_seed", "source": "curated", "id": "de-0020"}
+{"culture": "IN", "note_type": "정상", "rule_text": "I have attached the file", "entry_type": "neutral_seed", "source": "curated", "id": "in-0022"}
+{"culture": "IN", "note_type": "정상", "rule_text": "the meeting is at 3 PM", "entry_type": "neutral_seed", "source": "curated", "id": "in-0023"}
+{"culture": "IN", "note_type": "정상", "rule_text": "sharing my screen now", "entry_type": "neutral_seed", "source": "curated", "id": "in-0024"}
+{"culture": "SG", "note_type": "정상", "rule_text": "file attached already", "entry_type": "neutral_seed", "source": "curated", "id": "sg-0021"}
+{"culture": "SG", "note_type": "정상", "rule_text": "meeting at 3", "entry_type": "neutral_seed", "source": "curated", "id": "sg-0022"}
+{"culture": "SG", "note_type": "정상", "rule_text": "sharing screen now", "entry_type": "neutral_seed", "source": "curated", "id": "sg-0023"}

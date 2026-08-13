@@ -1,11 +1,14 @@
-"""오해 감지 게이트 — 임베딩 유사도 + 문화 거리 가중 1차 필터.
+"""오해 감지 게이트 — 위험표현(risk_seed) 유사도 + 문화 거리 가중 1차 필터.
 
-발화를 임베딩해 청자 문화의 위험표현 코퍼스와 유사도를 재고,
-화자↔청자 문화 거리로 문턱을 조정한다(먼 문화일수록 민감).
+발화를 임베딩해 **화자 문화의 위험표현 시드**(실제 완곡 표현들)와 유사도를 잰다.
+위험표현일수록(=오해를 유발하는 화자측 표현) 유사도가 높다.
+그 위험도를 화자↔청자 문화 거리로 조정한다(먼 문화일수록 민감).
 통과분만 LLM 상세 분석(각주)으로 넘어간다.
 
-    effective_threshold = base - distance_sensitivity * cultural_distance
+    effective_threshold = base - distance_sensitivity * cultural_distance(화자, 청자)
     유사도 >= effective_threshold 인 청자가 하나라도 있으면 통과.
+
+※ eval: scripts/eval_gate.py 로 F1 재고 base_threshold 튜닝 (risk_seed 매칭 기준).
 """
 
 import logging
@@ -24,11 +27,24 @@ async def passes_gate(req: AnalyzeRequest) -> bool:
     try:
         vec = embed_one(req.source_text)  # 발화당 1회만 임베딩
 
+        # 화자 문화의 위험표현 시드와 유사도 (발화가 알려진 완곡표현을 닮았나)
+        seeds = await search_by_vector(
+            vec, req.speaker.culture, top_k=s.gate_top_k, entry_type="risk_seed"
+        )
+        if not seeds:
+            return False
+        top_sim = max(r["similarity"] for r in seeds)
+
+        # 정상표현 시드보다 더 닮아야 통과 (사실전달·인사 등 오탐 제거)
+        neutrals = await search_by_vector(
+            vec, req.speaker.culture, top_k=s.gate_top_k, entry_type="neutral_seed"
+        )
+        top_neutral = max((r["similarity"] for r in neutrals), default=0.0)
+        if top_sim < top_neutral:
+            return False  # 위험표현보다 정상표현에 가까움 → 통과 안 함
+
+        # 청자 중 한 명이라도 문화 거리 기준 문턱을 넘으면 통과
         for listener in req.listeners:
-            rules = await search_by_vector(vec, listener.culture, top_k=s.gate_top_k)
-            if not rules:
-                continue
-            top_sim = max(r["similarity"] for r in rules)
             dist = cultural_distance(req.speaker.culture, listener.culture)
             effective = s.gate_base_threshold - s.gate_distance_sensitivity * dist
             if top_sim >= effective:
