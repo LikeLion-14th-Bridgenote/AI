@@ -13,12 +13,12 @@ from app.services.analyze import service
 
 def _req():
     return AnalyzeRequest(
-        utterance_id="u1", meeting_id="m1",
+        sentence_id="u1", meeting_id="m1",
         source_text="네, 검토해보겠습니다", source_lang="ko",
-        speaker={"culture": "KR", "job_role": "pm"},
+        speaker={"culture": "KR", "job": "pm"},
         listeners=[
-            {"participant_id": "p1", "lang": "en", "culture": "US", "job_role": "dev"},
-            {"participant_id": "p2", "lang": "vi", "culture": "VN", "job_role": "design"},
+            {"participant_id": "p1", "lang": "en", "culture": "US", "job": "dev"},
+            {"participant_id": "p2", "lang": "vi", "culture": "VN", "job": "design"},
         ],
     )
 

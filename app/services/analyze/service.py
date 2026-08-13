@@ -61,7 +61,7 @@ async def analyze(req: AnalyzeRequest) -> AnalyzeResponse:
     if not has_risk:
         # 게이트 미통과: 각주 불필요. 번역은 translate 서비스 몫(여기선 빈 값).
         return AnalyzeResponse(
-            utterance_id=req.utterance_id, has_risk=False,
+            sentence_id=req.sentence_id, has_risk=False,
             translations=_empty_translations(req),
         )
 
@@ -74,7 +74,7 @@ async def analyze(req: AnalyzeRequest) -> AnalyzeResponse:
         # LLM/파싱 실패: 각주는 못 달지만 500 대신 안전 응답(번역만).
         logger.warning("각주 생성 실패 → 각주 생략", exc_info=True)
         return AnalyzeResponse(
-            utterance_id=req.utterance_id, has_risk=False,
+            sentence_id=req.sentence_id, has_risk=False,
             translations=_empty_translations(req),
         )
 
@@ -82,12 +82,12 @@ async def analyze(req: AnalyzeRequest) -> AnalyzeResponse:
     # 방어: LLM이 boolean 대신 문자열 "false"를 줄 수 있음 (truthy 함정)
     if not _as_bool(data.get("has_risk", True)):
         return AnalyzeResponse(
-            utterance_id=req.utterance_id, has_risk=False,
+            sentence_id=req.sentence_id, has_risk=False,
             translations=_map_translations(req, data.get("translations", [])),
         )
 
     return AnalyzeResponse(
-        utterance_id=req.utterance_id,
+        sentence_id=req.sentence_id,
         has_risk=True,
         risk_level=data.get("risk_level", "Med"),
         note_type=data.get("note_type", ""),

@@ -29,4 +29,4 @@ async def translate(req: TranslateRequest) -> TranslateResponse:
         Translation(participant_id=t.participant_id, lang=t.lang, text=by_lang.get(t.lang, ""))
         for t in req.targets
     ]
-    return TranslateResponse(utterance_id=req.utterance_id, translations=translations)
+    return TranslateResponse(sentence_id=req.sentence_id, translations=translations)
