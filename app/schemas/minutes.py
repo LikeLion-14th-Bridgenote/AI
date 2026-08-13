@@ -21,6 +21,14 @@ class MinutesRequest(BaseModel):
     utterances: List[MinutesUtterance] = Field(default_factory=list)
 
 
+class ActionItem(BaseModel):
+    """액션 아이템 — 동균 UI '액션 탭'(담당자/기한 컬럼)과 정합."""
+
+    task: str
+    owner: Optional[str] = None
+    deadline: Optional[str] = None
+
+
 class MinutesSection(BaseModel):
     """언어·직무별 회의록 한 섹션 (결정/논의/액션)."""
 
@@ -28,7 +36,7 @@ class MinutesSection(BaseModel):
     job_role: Optional[str] = None
     decisions: List[str] = Field(default_factory=list)
     discussions: List[str] = Field(default_factory=list)
-    action_items: List[str] = Field(default_factory=list)
+    action_items: List[ActionItem] = Field(default_factory=list)
 
 
 class MinutesResponse(BaseModel):
