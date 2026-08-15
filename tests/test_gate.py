@@ -30,11 +30,13 @@ def test_cultural_distance_ordering():
     assert cultural_distance("KR", "ZZ") == 0.5
 
 
-def _patch(monkeypatch, similarity):
+def _patch(monkeypatch, similarity, neutral=None):
     monkeypatch.setattr(gate, "embed_one", lambda text: [0.0])
+    neutral = similarity if neutral is None else neutral
 
-    async def fake_search(vec, culture, top_k=5):
-        return [{"rule_text": "r", "note_type": "직설성", "culture": culture, "similarity": similarity}]
+    async def fake_search(vec, culture, top_k=5, entry_type=None):
+        sim = neutral if entry_type == "neutral_seed" else similarity
+        return [{"rule_text": "r", "note_type": "직설성", "culture": culture, "similarity": sim}]
 
     monkeypatch.setattr(gate, "search_by_vector", fake_search)
 
@@ -46,6 +48,12 @@ def test_gate_triggers_on_high_similarity(monkeypatch):
 
 def test_gate_skips_on_low_similarity(monkeypatch):
     _patch(monkeypatch, similarity=0.1)
+    assert asyncio.run(gate.passes_gate(_req())) is False
+
+
+def test_neutral_seed_blocks_when_more_similar(monkeypatch):
+    # risk 유사도는 높지만 정상표현에 더 가까우면 통과 안 함 (오탐 제거)
+    _patch(monkeypatch, similarity=0.9, neutral=0.95)
     assert asyncio.run(gate.passes_gate(_req())) is False
 
 

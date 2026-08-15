@@ -1,0 +1,24 @@
+{"text": "네, 한번 검토해보겠습니다", "source": "KR", "listener": "US", "label": "misread", "note": "완곡한 유보/거절"}
+{"text": "그건 좀 어려울 것 같은데요", "source": "KR", "listener": "US", "label": "misread", "note": "완곡 거절"}
+{"text": "생각 좀 해보겠습니다", "source": "KR", "listener": "US", "label": "misread", "note": "보류 신호"}
+{"text": "네네 알겠습니다", "source": "KR", "listener": "US", "label": "misread", "note": "동의가 아니라 '들었다'일 수 있음"}
+{"text": "일정이 좀 타이트하긴 한데 최대한 해보겠습니다", "source": "KR", "listener": "DE", "label": "misread", "note": "완곡, 저맥락 청자는 확답으로 오독"}
+{"text": "検討させていただきます", "source": "JP", "listener": "US", "label": "misread", "note": "일본식 완곡 거절"}
+{"text": "ちょっと難しいかもしれません", "source": "JP", "listener": "US", "label": "misread", "note": "사실상 거절"}
+{"text": "I will try my best to get it done", "source": "IN", "listener": "US", "label": "misread", "note": "확약이 아닐 수 있음"}
+{"text": "We will look into it and get back to you", "source": "SG", "listener": "US", "label": "misread", "note": "체면상 보류"}
+{"text": "That's an interesting idea, I'll bear it in mind", "source": "GB", "listener": "US", "label": "misread", "note": "영국식 완곡 거절"}
+{"text": "It's quite good, I suppose", "source": "GB", "listener": "US", "label": "misread", "note": "understatement, 실제론 부정적일 수 있음"}
+{"text": "네, 문제없습니다 (상사 제안에)", "source": "KR", "listener": "US", "label": "misread", "note": "위계상 이견 표현 회피"}
+{"text": "회의는 오후 3시에 시작합니다", "source": "KR", "listener": "US", "label": "normal", "note": "사실 전달"}
+{"text": "방금 파일 첨부해서 보냈습니다", "source": "KR", "listener": "US", "label": "normal", "note": "사실 전달"}
+{"text": "다음 회의는 금요일 오전 10시로 하겠습니다", "source": "KR", "listener": "US", "label": "normal", "note": "일정 공지"}
+{"text": "예산은 총 5천만 원입니다", "source": "KR", "listener": "US", "label": "normal", "note": "수치 사실"}
+{"text": "The build passed all tests", "source": "US", "listener": "KR", "label": "normal", "note": "사실 보고"}
+{"text": "Please find the report attached", "source": "US", "listener": "KR", "label": "normal", "note": "사실 전달"}
+{"text": "The deadline is next Monday", "source": "US", "listener": "VN", "label": "normal", "note": "일정 사실"}
+{"text": "Our office is on the third floor", "source": "US", "listener": "KR", "label": "normal", "note": "사실"}
+{"text": "안녕하세요, 오늘 회의 시작하겠습니다", "source": "KR", "listener": "US", "label": "normal", "note": "인사/시작"}
+{"text": "감사합니다, 수고하셨습니다", "source": "KR", "listener": "US", "label": "normal", "note": "인사"}
+{"text": "화면 공유하겠습니다", "source": "KR", "listener": "US", "label": "normal", "note": "행동 안내"}
+{"text": "테스트 커버리지는 85%입니다", "source": "KR", "listener": "DE", "label": "normal", "note": "수치 사실"}
