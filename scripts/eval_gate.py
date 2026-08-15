@@ -8,6 +8,9 @@ data/eval/gate_testset.jsonl(라벨: misread/normal)에 게이트 로직을 적�
 
 app/services/analyze/gate.py의 실제 판정식과 동일하게 맞춰야 의미가 있다:
     predict misread  ⇔  max_sim >= base - sensitivity * cultural_distance(source, listener)
+
+주의: 평가셋 문장이 시드 코퍼스에 들어가면 유사도가 1.0이라 무조건 맞힌다.
+시드나 평가셋을 건드린 뒤에는 scripts/check_eval_leakage.py로 누수를 확인할 것.
 """
 
 import json

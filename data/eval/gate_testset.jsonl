@@ -16,7 +16,7 @@
 {"text": "Cái này hơi khó một chút", "source": "VN", "listener": "DE", "label": "misread", "note": "'조금 어렵다' = 사실상 불가"}
 {"text": "这个可能需要再研究一下", "source": "CN", "listener": "US", "label": "misread", "note": "추가 검토 = 완곡한 보류"}
 {"text": "我们回去商量一下", "source": "CN", "listener": "DE", "label": "misread", "note": "내부 논의 = 즉답 회피"}
-{"text": "That could be better", "source": "US", "listener": "KR", "label": "misread", "note": "직접적 부정 평가 — KR 청자에겐 강하게 들림"}
+{"text": "There's room for improvement here", "source": "US", "listener": "KR", "label": "misread", "note": "직접적 부정 평가 — KR 청자에겐 강하게 들림"}
 {"text": "I disagree with that approach", "source": "US", "listener": "JP", "label": "misread", "note": "공개적 반대 — 고맥락 문화에선 강한 충돌"}
 {"text": "This needs to be redone", "source": "DE", "listener": "KR", "label": "misread", "note": "직설적 지시 — 질책으로 받아들여질 수 있음"}
 {"text": "Das funktioniert so nicht", "source": "DE", "listener": "VN", "label": "misread", "note": "독일식 직설 피드백"}
@@ -26,7 +26,7 @@
 {"text": "예산은 총 5천만 원입니다", "source": "KR", "listener": "US", "label": "normal", "note": "수치 전달"}
 {"text": "테스트 커버리지는 85%입니다", "source": "KR", "listener": "DE", "label": "normal", "note": "수치 전달"}
 {"text": "안녕하세요, 오늘 회의 시작하겠습니다", "source": "KR", "listener": "US", "label": "normal", "note": "인사·진행"}
-{"text": "감사합니다, 수고하셨습니다", "source": "KR", "listener": "US", "label": "normal", "note": "인사"}
+{"text": "오늘 논의 여기까지 하겠습니다", "source": "KR", "listener": "US", "label": "normal", "note": "인사"}
 {"text": "제 화면 보이시나요?", "source": "KR", "listener": "VN", "label": "normal", "note": "진행 확인"}
 {"text": "The deadline is next Monday", "source": "US", "listener": "VN", "label": "normal", "note": "사실 전달"}
 {"text": "The changes are now on the main branch", "source": "US", "listener": "KR", "label": "normal", "note": "사실 전달"}

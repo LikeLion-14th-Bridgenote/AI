@@ -37,7 +37,7 @@ class Settings(BaseSettings):
     # 사실상 작동하지 않는다. sens를 0.8까지 올려도 F1이 0.88~0.90에서 움직이지 않는다.
     # 값을 지우지 않는 이유는, 코퍼스가 커져 유사도 분포가 벌어지면 다시 의미를 갖기 때문이다.
     # 자세한 진단은 이슈 #10 참고.
-    gate_base_threshold: float = 0.35  # 스윕 최고점 (F1 0.93, P 1.00 / R 0.86)
+    gate_base_threshold: float = 0.35  # 스윕 최고점 (F1 0.90, P 1.00 / R 0.82, 42건)
     gate_distance_sensitivity: float = 0.05  # 문화가 멀수록 문턱을 낮춤 — 현재 영향 없음
     gate_top_k: int = 5
 
