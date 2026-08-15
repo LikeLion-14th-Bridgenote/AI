@@ -78,7 +78,7 @@ async def health_deep():
     }
 
     try:
-        vec = embed_one("헬스체크")
+        vec = await embed_one("헬스체크")  # embed_one은 async(스레드 오프로드) — await 필수
         checks["embedding"] = {"ok": len(vec) == s.embed_dim, "detail": f"{len(vec)}차원"}
     except Exception as e:  # noqa: BLE001
         vec = None
