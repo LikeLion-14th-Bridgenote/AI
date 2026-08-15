@@ -64,14 +64,18 @@ async def _translate_only(req: AnalyzeRequest) -> list:
 
 
 async def _gather_rules(req: AnalyzeRequest, top_k: int = 5):
-    """청자 문화별로 관련 규칙을 모아 각주 근거로 쓴다 (발화당 1회 임베딩)."""
+    """청자 문화별 규칙을 모아 각주 근거로 쓴다 (발화당 1회 임베딩).
+
+    entry_type="rule"로 좁힌다. 필터가 없으면 risk_seed·neutral_seed(코퍼스의 3분의 1)까지
+    후보가 돼서, 근거 자리에 설명이 아니라 발화 예문이 들어간다.
+    """
     vec = embed_one(req.source_text)
     seen, rules = set(), []
     for listener in req.listeners:
         if listener.culture in seen:
             continue
         seen.add(listener.culture)
-        rules += await search_by_vector(vec, listener.culture, top_k=top_k)
+        rules += await search_by_vector(vec, listener.culture, top_k=top_k, entry_type="rule")
     return rules
 
 
