@@ -9,6 +9,7 @@ import json
 
 from app.schemas.analyze import AnalyzeRequest
 from app.services.analyze import service
+from app.services.translate import service as translate_service
 
 
 def _req():
@@ -23,7 +24,7 @@ def _req():
     )
 
 
-def _patch(monkeypatch, *, gate=True, llm_out="", raises=False):
+def _patch(monkeypatch, *, gate=True, llm_out="", raises=False, tr_raises=False):
     async def fake_gate(_req):
         return gate
 
@@ -35,17 +36,54 @@ def _patch(monkeypatch, *, gate=True, llm_out="", raises=False):
             raise RuntimeError("llm down")
         return llm_out
 
+    # 각주 없는 경로는 translate 서비스를 타므로 그쪽 LLM도 막는다(자기 모듈의 클라이언트를 씀).
+    async def fake_translate_complete(prompt, system="", max_tokens=1024):
+        if tr_raises:
+            raise RuntimeError("translate down")
+        return json.dumps({"translations": [
+            {"lang": "en", "text": "I'll review it."},
+            {"lang": "vi", "text": "Tôi sẽ xem xét."},
+        ]})
+
     monkeypatch.setattr(service, "passes_gate", fake_gate)
     monkeypatch.setattr(service, "_gather_rules", fake_rules)
     monkeypatch.setattr(service, "get_llm_client",
                         lambda: type("C", (), {"complete": staticmethod(fake_complete)})())
     monkeypatch.setattr(service, "_scores", lambda: {})
+    monkeypatch.setattr(translate_service, "get_llm_client",
+                        lambda: type("C", (), {"complete": staticmethod(fake_translate_complete)})())
 
 
 def test_gate_miss_returns_no_risk(monkeypatch):
     _patch(monkeypatch, gate=False)
     r = asyncio.run(service.analyze(_req()))
     assert r.has_risk is False and len(r.translations) == 2
+
+
+def test_gate_miss_still_fills_translations(monkeypatch):
+    # 각주가 없어도 번역은 채워야 한다. 비면 BE가 브로드캐스트할 게 없어 자막이 사라진다.
+    _patch(monkeypatch, gate=False)
+    r = asyncio.run(service.analyze(_req()))
+    by_pid = {t.participant_id: t for t in r.translations}
+    assert by_pid["p1"].text == "I'll review it."
+    assert by_pid["p2"].text == "Tôi sẽ xem xét."
+    assert all(t.text for t in r.translations)
+
+
+def test_note_failure_still_fills_translations(monkeypatch):
+    # 각주 LLM이 죽어도(fail-open) 번역은 살아야 한다.
+    _patch(monkeypatch, gate=True, raises=True)
+    r = asyncio.run(service.analyze(_req()))
+    assert r.has_risk is False
+    assert all(t.text for t in r.translations)
+
+
+def test_translate_failure_returns_empty_text_not_500(monkeypatch):
+    # 번역까지 실패하면 빈 텍스트로 두되 200은 유지(fail-open).
+    _patch(monkeypatch, gate=False, tr_raises=True)
+    r = asyncio.run(service.analyze(_req()))
+    assert r.has_risk is False and len(r.translations) == 2
+    assert all(t.text == "" for t in r.translations)
 
 
 def test_note_generated_from_llm_json(monkeypatch):

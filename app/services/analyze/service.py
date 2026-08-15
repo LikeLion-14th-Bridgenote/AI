@@ -3,7 +3,10 @@
 1) 임베딩 게이트로 오해 소지 판정
 2) 통과분: RAG(청자 문화 코퍼스) → Culture Map 프롬프트 → LLM → 각주 JSON 파싱
    같은 호출에서 참가자 언어별 번역까지 받아 채운다.
-3) 미통과분: 각주 없이 번역만 (translate 서비스가 담당, 여기선 빈 값 자리표시).
+3) 미통과분: 각주 없이 번역만 (translate 서비스를 여기서 호출해 채운다).
+
+BE는 이 응답 하나로 자막과 경고를 모두 브로드캐스트한다. 따라서 has_risk가
+false여도 translations는 항상 채워져야 한다 — 비어 있으면 자막이 사라진다.
 """
 
 import json
@@ -11,12 +14,14 @@ import logging
 
 from app.core.embeddings import embed_one
 from app.core.llm import get_llm_client
-from app.prompts.culture_map import ANALYZE_SYSTEM_PROMPT, build_user_prompt
+from app.prompts.culture_map import ANALYZE_SYSTEM_PROMPT, NOTE_TYPES, build_user_prompt
 from app.rag.corpus import search_by_vector
 from app.rag.culture_distance import _scores  # country_scores.json 로더 재사용
 from app.schemas.analyze import AnalyzeRequest, AnalyzeResponse
 from app.schemas.common import Translation
+from app.schemas.translate import TranslateRequest, TranslateTarget
 from app.services.analyze.gate import passes_gate
+from app.services.translate.service import translate
 
 logger = logging.getLogger(__name__)
 
@@ -28,11 +33,34 @@ def _as_bool(v) -> bool:
     return bool(v)
 
 
-def _empty_translations(req: AnalyzeRequest):
-    return [
-        Translation(participant_id=l.participant_id, lang=l.lang, text="")
-        for l in req.listeners
-    ]
+def _note_type(v) -> str:
+    """프론트 문화 가이드 탭이 이 세 값으로 칩·통계를 그린다. 벗어나면 집계에서 빠지므로 보정."""
+    s = (v or "").strip()
+    if s in NOTE_TYPES:
+        return s
+    # ponytail: 부분일치만 본다. 더 정교한 매핑이 필요해지면 라벨 사전을 두자.
+    for t in NOTE_TYPES:
+        if t in s or s in t:
+            return t
+    return NOTE_TYPES[0]  # 판단 불가 시 가장 포괄적인 "문화 이해"
+
+
+async def _translate_only(req: AnalyzeRequest) -> list:
+    """각주가 필요 없는 발화의 번역. BE가 이 응답만으로 자막을 띄울 수 있어야 한다.
+
+    예전엔 빈 문자열을 돌려주고 BE가 /ai/translate를 따로 부르는 전제였는데,
+    그 호출이 없으면 자막이 통째로 사라진다. 대부분의 발화가 이 경로라 여기서 채운다.
+    """
+    res = await translate(TranslateRequest(
+        sentence_id=req.sentence_id,
+        source_text=req.source_text,
+        source_lang=req.source_lang,
+        targets=[
+            TranslateTarget(participant_id=l.participant_id, lang=l.lang)
+            for l in req.listeners
+        ],
+    ))
+    return res.translations
 
 
 async def _gather_rules(req: AnalyzeRequest, top_k: int = 5):
@@ -59,10 +87,10 @@ def _map_translations(req: AnalyzeRequest, raw: list) -> list:
 async def analyze(req: AnalyzeRequest) -> AnalyzeResponse:
     has_risk = await passes_gate(req)
     if not has_risk:
-        # 게이트 미통과: 각주 불필요. 번역은 translate 서비스 몫(여기선 빈 값).
+        # 게이트 미통과: 각주는 불필요하지만 번역은 채워서 준다(BE가 이걸로 자막을 띄운다).
         return AnalyzeResponse(
             sentence_id=req.sentence_id, has_risk=False,
-            translations=_empty_translations(req),
+            translations=await _translate_only(req),
         )
 
     try:
@@ -72,10 +100,10 @@ async def analyze(req: AnalyzeRequest) -> AnalyzeResponse:
         data = json.loads(raw)
     except Exception:  # noqa: BLE001
         # LLM/파싱 실패: 각주는 못 달지만 500 대신 안전 응답(번역만).
-        logger.warning("각주 생성 실패 → 각주 생략", exc_info=True)
+        logger.warning("각주 생성 실패 → 각주 생략(번역은 시도)", exc_info=True)
         return AnalyzeResponse(
             sentence_id=req.sentence_id, has_risk=False,
-            translations=_empty_translations(req),
+            translations=await _translate_only(req),
         )
 
     # LLM이 재검토 후 위험 없다고 판단하면 각주 생략
@@ -90,7 +118,7 @@ async def analyze(req: AnalyzeRequest) -> AnalyzeResponse:
         sentence_id=req.sentence_id,
         has_risk=True,
         risk_level=data.get("risk_level", "Med"),
-        note_type=data.get("note_type", ""),
+        note_type=_note_type(data.get("note_type")),
         speaker_intent=data.get("speaker_intent", ""),
         listener_misread=data.get("listener_misread", ""),
         advice=data.get("advice", ""),
