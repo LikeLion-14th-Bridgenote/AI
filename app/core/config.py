@@ -34,6 +34,9 @@ class Settings(BaseSettings):
     #    변별 마진이 얇다. 재현율/정밀도 부족 시 multilingual-e5-large(query:/passage: 프리픽스)로 교체 검토.
     gate_base_threshold: float = 0.45  # risk_seed 매칭 기준 F1 최적점 (eval_gate.py, F1≈0.83)
     gate_distance_sensitivity: float = 0.05  # 문화가 멀수록 문턱 낮춤(민감)
+    # 정상시드가 위험시드보다 이 값 이상 더 가까울 때만 탈락. 0이면 아주 미세한 차이도 탈락(옛 동작).
+    # 다국어 MiniLM은 마진이 얇아 STT 변형(띄어쓰기 등)이 자주 놓쳐 → 마진으로 재현율 확보.
+    gate_neutral_margin: float = 0.10
     gate_top_k: int = 5
 
 
