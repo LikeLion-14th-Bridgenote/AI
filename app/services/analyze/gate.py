@@ -15,6 +15,7 @@ import logging
 
 from app.core.config import get_settings
 from app.core.embeddings import embed_one
+from app.core.health import record_fail_open
 from app.rag.corpus import search_by_vector
 from app.rag.culture_distance import cultural_distance
 from app.schemas.analyze import AnalyzeRequest
@@ -54,5 +55,6 @@ async def passes_gate(req: AnalyzeRequest) -> bool:
     except Exception:  # noqa: BLE001
         # fail-open: 코퍼스/임베딩 인프라 오류 시 각주는 건너뛰되(위험 없음 처리)
         # 번역 등 나머지 응답은 정상 반환되도록 500을 내지 않는다.
+        record_fail_open("gate")
         logger.warning("게이트 판정 실패 → 각주 생략(fail-open)", exc_info=True)
         return False
