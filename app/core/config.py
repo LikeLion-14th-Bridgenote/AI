@@ -31,7 +31,7 @@ class Settings(BaseSettings):
 
     # 오해 감지 게이트 튜닝 — 값 근거는 scripts/eval_gate.py (누수 없는 42건 기준)
     #
-    # 판정식: risk_sim >= base - sensitivity * cultural_distance  AND  risk_sim >= neutral_sim
+    # 판정식: risk_sim >= base - sensitivity * cultural_distance  AND  risk_sim >= neutral_sim - neutral_margin
     #
     # 실측하면 판정을 실제로 가르는 건 뒤쪽(risk vs neutral) 비교다. 42건 중 탈락 21건이
     # 전부 그 비교에서 걸리고 문턱에서 걸리는 건 0건이다. 즉 아래 두 값은 지금
@@ -40,6 +40,10 @@ class Settings(BaseSettings):
     # 자세한 진단은 이슈 #10 참고.
     gate_base_threshold: float = 0.35  # 스윕 최고점 (F1 0.90, P 1.00 / R 0.82, 42건)
     gate_distance_sensitivity: float = 0.05  # 문화가 멀수록 문턱을 낮춤 — 현재 영향 없음
+    # neutral 비교 완화 마진: risk_sim이 neutral_sim보다 이 값 이내로만 낮으면 통과시킨다.
+    # 다국어 MiniLM은 마진이 얇아 STT 변형(띄어쓰기 등) 완곡표현이 neutral에 살짝 밀려 놓치는 일이 잦음.
+    # (0 = 옛 동작: 아주 미세한 차이도 탈락) — eval_gate.py로 F1 재확인 후 조정 권장.
+    gate_neutral_margin: float = 0.10
     gate_top_k: int = 5
 
 

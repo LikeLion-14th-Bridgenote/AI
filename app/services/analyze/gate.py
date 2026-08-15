@@ -41,8 +41,15 @@ async def passes_gate(req: AnalyzeRequest) -> bool:
             vec, req.speaker.culture, top_k=s.gate_top_k, entry_type="neutral_seed"
         )
         top_neutral = max((r["similarity"] for r in neutrals), default=0.0)
-        if top_sim < top_neutral:
-            return False  # 위험표현보다 정상표현에 가까움 → 통과 안 함
+        logger.info(
+            "gate: top_risk=%.3f top_neutral=%.3f base=%.2f text=%r",
+            top_sim, top_neutral, s.gate_base_threshold, req.source_text,
+        )
+        # 정상표현이 위험표현보다 "뚜렷하게" 가까울 때만 탈락(마진).
+        # 다국어 MiniLM은 변별 마진이 얇아, STT 띄어쓰기 하나로 top_neutral이 살짝 앞서며
+        # 같은 완곡표현이 놓치는 일이 잦다(예: "검토해 보겠습니다" 0.583<0.637). 마진으로 완화.
+        if top_sim < top_neutral - s.gate_neutral_margin:
+            return False  # 위험표현보다 정상표현에 뚜렷이 가까움 → 통과 안 함
 
         # 청자 중 한 명이라도 문화 거리 기준 문턱을 넘으면 통과
         for listener in req.listeners:
