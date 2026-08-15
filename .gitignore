@@ -22,3 +22,7 @@ env/
 
 # 원재료 데이터셋 (CultureBank/NormBank) — 커밋 금지
 data/raw/
+
+# 공유받은 env 묶음(시크릿) — 절대 커밋 금지
+env.zip
+*.env.zip

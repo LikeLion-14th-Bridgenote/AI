@@ -11,7 +11,7 @@ import logging
 
 from app.core.embeddings import embed_one
 from app.core.llm import get_llm_client
-from app.prompts.culture_map import ANALYZE_SYSTEM_PROMPT, build_user_prompt
+from app.prompts.culture_map import ANALYZE_SYSTEM_PROMPT, NOTE_TYPES, build_user_prompt
 from app.rag.corpus import search_by_vector
 from app.rag.culture_distance import _scores  # country_scores.json 로더 재사용
 from app.schemas.analyze import AnalyzeRequest, AnalyzeResponse
@@ -26,6 +26,18 @@ def _as_bool(v) -> bool:
     if isinstance(v, str):
         return v.strip().lower() == "true"
     return bool(v)
+
+
+def _note_type(v) -> str:
+    """프론트 문화 가이드 탭이 이 세 값으로 칩·통계를 그린다. 벗어나면 집계에서 빠지므로 보정."""
+    s = (v or "").strip()
+    if s in NOTE_TYPES:
+        return s
+    # ponytail: 부분일치만 본다. 더 정교한 매핑이 필요해지면 라벨 사전을 두자.
+    for t in NOTE_TYPES:
+        if t in s or s in t:
+            return t
+    return NOTE_TYPES[0]  # 판단 불가 시 가장 포괄적인 "문화 이해"
 
 
 def _empty_translations(req: AnalyzeRequest):
@@ -90,7 +102,7 @@ async def analyze(req: AnalyzeRequest) -> AnalyzeResponse:
         sentence_id=req.sentence_id,
         has_risk=True,
         risk_level=data.get("risk_level", "Med"),
-        note_type=data.get("note_type", ""),
+        note_type=_note_type(data.get("note_type")),
         speaker_intent=data.get("speaker_intent", ""),
         listener_misread=data.get("listener_misread", ""),
         advice=data.get("advice", ""),

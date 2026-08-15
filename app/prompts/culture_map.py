@@ -35,14 +35,21 @@ ANALYZE_SYSTEM_PROMPT = (
     "- Write speaker_intent / listener_misread / advice in the SPEAKER's language.\n"
     "- has_risk MUST be a JSON boolean (true/false), NOT the string \"true\"/\"false\".\n"
     "- risk_level MUST be exactly one of: High, Med, Low.\n"
+    "- note_type MUST be exactly one of these three Korean labels: 문화 이해, 커뮤니케이션, 업무 스타일.\n"
+    "  · 문화 이해 — 완곡/직설, 맥락 의존 등 표현 방식의 문화 차이\n"
+    "  · 커뮤니케이션 — 피드백·이견 제시·동의 표현 방식\n"
+    "  · 업무 스타일 — 일정·담당·의사결정 등 업무 진행 방식\n"
     "- Output ONLY a single JSON object, no prose, no markdown fences."
 )
+
+# 프론트(회의록 문화 가이드 탭)가 이 세 값으로 칩·통계를 그린다. 다른 값이 오면 집계에서 빠진다.
+NOTE_TYPES = ("문화 이해", "커뮤니케이션", "업무 스타일")
 
 # LLM이 반드시 이 형태로만 반환하도록 지시하는 출력 스키마
 _OUTPUT_SCHEMA = {
     "has_risk": "true|false",
     "risk_level": "High|Med|Low",
-    "note_type": "직설성|피드백|대립|위계 중 가장 가까운 것 (한국어 라벨)",
+    "note_type": "문화 이해|커뮤니케이션|업무 스타일 중 하나 (이 셋 외 금지)",
     "speaker_intent": "화자의 실제 의도 (추정, 단정 금지)",
     "listener_misread": "청자 문화에서 오독할 수 있는 지점",
     "advice": "화자에게 줄 한 줄 조언",
