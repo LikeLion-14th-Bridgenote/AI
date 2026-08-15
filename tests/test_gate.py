@@ -13,12 +13,12 @@ from app.services.analyze import gate
 
 def _req(speaker_culture="KR", listener_culture="US", text="네, 검토해보겠습니다"):
     return AnalyzeRequest(
-        utterance_id="u1",
+        sentence_id="u1",
         meeting_id="m1",
         source_text=text,
         source_lang="ko",
-        speaker={"culture": speaker_culture, "job_role": "pm"},
-        listeners=[{"participant_id": "p1", "lang": "en", "culture": listener_culture, "job_role": "dev"}],
+        speaker={"culture": speaker_culture, "job": "pm"},
+        listeners=[{"participant_id": "p1", "lang": "en", "culture": listener_culture, "job": "dev"}],
     )
 
 

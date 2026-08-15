@@ -9,7 +9,7 @@ from app.services.translate import service
 
 def _req():
     return TranslateRequest(
-        utterance_id="u1", source_text="금요일까지 가능할까요?", source_lang="ko",
+        sentence_id="u1", source_text="금요일까지 가능할까요?", source_lang="ko",
         targets=[
             {"participant_id": "p1", "lang": "en"},
             {"participant_id": "p2", "lang": "vi"},

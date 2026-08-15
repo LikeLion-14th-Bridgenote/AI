@@ -31,7 +31,7 @@ def _req(job_roles=None):
         languages=["ko", "en"],
         job_roles=job_roles or [],
         utterances=[
-            {"utterance_id": "u1", "speaker": "종윤", "lang": "ko", "text": "금요일까지 초안 공유할게요"},
+            {"sentence_id": "u1", "speaker": "종윤", "lang": "ko", "text": "금요일까지 초안 공유할게요"},
         ],
     )
 

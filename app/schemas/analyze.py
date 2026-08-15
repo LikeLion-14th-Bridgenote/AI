@@ -7,14 +7,14 @@ from app.schemas.common import Translation
 
 class Speaker(BaseModel):
     culture: str
-    job_role: str
+    job: str
 
 
 class Listener(BaseModel):
     participant_id: str
     lang: str
     culture: str
-    job_role: str
+    job: str
 
 
 class ContextItem(BaseModel):
@@ -25,7 +25,7 @@ class ContextItem(BaseModel):
 class AnalyzeRequest(BaseModel):
     """POST /ai/analyze 요청. Spring BE가 STT 확정 발화를 담아 호출한다."""
 
-    utterance_id: str
+    sentence_id: str
     meeting_id: str
     source_text: str
     source_lang: str
@@ -43,7 +43,7 @@ class AnalyzeResponse(BaseModel):
     (None 필드는 응답에서 제외 — 라우터에서 response_model_exclude_none=True)
     """
 
-    utterance_id: str
+    sentence_id: str
     has_risk: bool
     risk_level: Optional[str] = None  # High | Med | Low
     note_type: Optional[str] = None

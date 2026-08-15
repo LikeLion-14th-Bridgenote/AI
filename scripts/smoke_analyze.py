@@ -20,16 +20,16 @@ from app.schemas.analyze import AnalyzeRequest
 # 데모 케이스 (게이트는 건너뛰고 각주 생성만 검증)
 CASES = [
     dict(source_text="네, 한번 검토해보겠습니다", source_lang="ko",
-         speaker={"culture": "KR", "job_role": "pm"},
-         listeners=[{"participant_id": "p1", "lang": "en", "culture": "US", "job_role": "dev"}],
+         speaker={"culture": "KR", "job": "pm"},
+         listeners=[{"participant_id": "p1", "lang": "en", "culture": "US", "job": "dev"}],
          meeting_context="법률 자문 미팅"),
     dict(source_text="That's an interesting idea, I'll bear it in mind", source_lang="en",
-         speaker={"culture": "GB", "job_role": "pm"},
-         listeners=[{"participant_id": "p1", "lang": "en", "culture": "US", "job_role": "dev"}],
+         speaker={"culture": "GB", "job": "pm"},
+         listeners=[{"participant_id": "p1", "lang": "en", "culture": "US", "job": "dev"}],
          meeting_context="스타트업 킥오프"),
     dict(source_text="I will try my best to get it done", source_lang="en",
-         speaker={"culture": "IN", "job_role": "dev"},
-         listeners=[{"participant_id": "p1", "lang": "ko", "culture": "KR", "job_role": "pm"}],
+         speaker={"culture": "IN", "job": "dev"},
+         listeners=[{"participant_id": "p1", "lang": "ko", "culture": "KR", "job": "pm"}],
          meeting_context="오프쇼어 개발 미팅"),
 ]
 
@@ -45,7 +45,7 @@ async def main() -> None:
     client = get_llm_client()
     print(f"provider={client.provider} model={client.model}\n")
     for i, c in enumerate(CASES, 1):
-        req = AnalyzeRequest(utterance_id=f"u{i}", meeting_id="m1", **c)
+        req = AnalyzeRequest(sentence_id=f"u{i}", meeting_id="m1", **c)
         prompt = build_user_prompt(req, INLINE_RULES, _scores())
         raw = await client.complete(prompt, system=ANALYZE_SYSTEM_PROMPT)
         print(f"=== 케이스 {i}: [{req.speaker.culture}→{req.listeners[0].culture}] {req.source_text}")
