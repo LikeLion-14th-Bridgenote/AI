@@ -31,7 +31,10 @@ def test_cultural_distance_ordering():
 
 
 def _patch(monkeypatch, similarity, neutral=None):
-    monkeypatch.setattr(gate, "embed_one", lambda text: [0.0])
+    async def fake_embed(text):
+        return [0.0]
+
+    monkeypatch.setattr(gate, "embed_one", fake_embed)
     neutral = similarity if neutral is None else neutral
 
     async def fake_search(vec, culture, top_k=5, entry_type=None):

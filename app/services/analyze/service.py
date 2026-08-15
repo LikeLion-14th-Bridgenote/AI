@@ -65,7 +65,7 @@ async def _translate_only(req: AnalyzeRequest) -> list:
 
 async def _gather_rules(req: AnalyzeRequest, top_k: int = 5):
     """청자 문화별로 관련 규칙을 모아 각주 근거로 쓴다 (발화당 1회 임베딩)."""
-    vec = embed_one(req.source_text)
+    vec = await embed_one(req.source_text)
     seen, rules = set(), []
     for listener in req.listeners:
         if listener.culture in seen:

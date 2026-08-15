@@ -23,6 +23,7 @@ class Settings(BaseSettings):
 
     # Supabase pgvector (culture_corpus 조회용)
     supabase_db_url: str = ""
+    db_pool_max: int = 10  # 코퍼스 조회용 커넥션 풀 상한
 
     # 임베딩 (로컬 fastembed, 다국어) — 게이트·코퍼스 공용
     embed_model: str = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"

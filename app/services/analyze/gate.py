@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 async def passes_gate(req: AnalyzeRequest) -> bool:
     s = get_settings()
     try:
-        vec = embed_one(req.source_text)  # 발화당 1회만 임베딩
+        vec = await embed_one(req.source_text)  # 발화당 1회만 임베딩(캐시+스레드)
 
         # 화자 문화의 위험표현 시드와 유사도 (발화가 알려진 완곡표현을 닮았나)
         seeds = await search_by_vector(
