@@ -301,3 +301,26 @@
 {"culture": "SG", "note_type": "정상", "rule_text": "file attached already", "entry_type": "neutral_seed", "source": "curated", "id": "sg-0021"}
 {"culture": "SG", "note_type": "정상", "rule_text": "meeting at 3", "entry_type": "neutral_seed", "source": "curated", "id": "sg-0022"}
 {"culture": "SG", "note_type": "정상", "rule_text": "sharing screen now", "entry_type": "neutral_seed", "source": "curated", "id": "sg-0023"}
+{"id": "us-rs-001", "rule_text": "That's not going to work", "culture": "US", "note_type": "직설성", "source": "team-authored", "entry_type": "risk_seed"}
+{"id": "us-rs-002", "rule_text": "You're missing the point here", "culture": "US", "note_type": "직설성", "source": "team-authored", "entry_type": "risk_seed"}
+{"id": "us-rs-003", "rule_text": "We need to fix this before shipping", "culture": "US", "note_type": "직설성", "source": "team-authored", "entry_type": "risk_seed"}
+{"id": "us-rs-004", "rule_text": "I don't think that's a good idea", "culture": "US", "note_type": "직설성", "source": "team-authored", "entry_type": "risk_seed"}
+{"id": "us-rs-005", "rule_text": "Can you redo this part?", "culture": "US", "note_type": "직설성", "source": "team-authored", "entry_type": "risk_seed"}
+{"id": "us-rs-006", "rule_text": "This is not what I asked for", "culture": "US", "note_type": "직설성", "source": "team-authored", "entry_type": "risk_seed"}
+{"id": "de-rs-001", "rule_text": "Das ist nicht korrekt", "culture": "DE", "note_type": "직설성", "source": "team-authored", "entry_type": "risk_seed"}
+{"id": "de-rs-002", "rule_text": "Wir müssen das komplett überarbeiten", "culture": "DE", "note_type": "직설성", "source": "team-authored", "entry_type": "risk_seed"}
+{"id": "de-rs-003", "rule_text": "Ich bin damit nicht einverstanden", "culture": "DE", "note_type": "직설성", "source": "team-authored", "entry_type": "risk_seed"}
+{"id": "de-rs-004", "rule_text": "Das reicht nicht aus", "culture": "DE", "note_type": "직설성", "source": "team-authored", "entry_type": "risk_seed"}
+{"id": "de-rs-005", "rule_text": "Sie haben einen Fehler gemacht", "culture": "DE", "note_type": "직설성", "source": "team-authored", "entry_type": "risk_seed"}
+{"id": "gb-rs-001", "rule_text": "I'm afraid that won't do", "culture": "GB", "note_type": "완곡", "source": "team-authored", "entry_type": "risk_seed"}
+{"id": "gb-rs-002", "rule_text": "This rather misses the mark", "culture": "GB", "note_type": "완곡", "source": "team-authored", "entry_type": "risk_seed"}
+{"id": "us-ns-001", "rule_text": "Let me walk you through the demo", "culture": "US", "note_type": null, "source": "team-authored", "entry_type": "neutral_seed"}
+{"id": "us-ns-002", "rule_text": "I'll take that action item", "culture": "US", "note_type": null, "source": "team-authored", "entry_type": "neutral_seed"}
+{"id": "us-ns-003", "rule_text": "My suggestion would be option A", "culture": "US", "note_type": null, "source": "team-authored", "entry_type": "neutral_seed"}
+{"id": "us-ns-004", "rule_text": "Here's what I'm seeing on my end", "culture": "US", "note_type": null, "source": "team-authored", "entry_type": "neutral_seed"}
+{"id": "us-ns-005", "rule_text": "Let's move on to the next topic", "culture": "US", "note_type": null, "source": "team-authored", "entry_type": "neutral_seed"}
+{"id": "us-ns-006", "rule_text": "I'll follow up by email", "culture": "US", "note_type": null, "source": "team-authored", "entry_type": "neutral_seed"}
+{"id": "de-ns-001", "rule_text": "Ich teile jetzt meinen Bildschirm", "culture": "DE", "note_type": null, "source": "team-authored", "entry_type": "neutral_seed"}
+{"id": "de-ns-002", "rule_text": "Der Test läuft gerade", "culture": "DE", "note_type": null, "source": "team-authored", "entry_type": "neutral_seed"}
+{"id": "kr-ns-001", "rule_text": "제가 이 부분 맡아서 목요일까지 하겠습니다", "culture": "KR", "note_type": null, "source": "team-authored", "entry_type": "neutral_seed"}
+{"id": "kr-ns-002", "rule_text": "지금 바로 반영해서 공유드리겠습니다", "culture": "KR", "note_type": null, "source": "team-authored", "entry_type": "neutral_seed"}
