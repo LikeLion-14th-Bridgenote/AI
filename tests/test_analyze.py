@@ -127,3 +127,19 @@ def test_malformed_json_is_fail_open(monkeypatch):
     _patch(monkeypatch, llm_out="not json {{{")
     r = asyncio.run(service.analyze(_req()))
     assert r.has_risk is False
+
+
+def test_gather_rules_requests_only_rule_entries(monkeypatch):
+    # 각주 근거는 규칙(rule)만. 필터가 없으면 risk_seed·neutral_seed 예문이 근거 자리에 들어간다.
+    calls = []
+
+    async def fake_search(vec, culture, top_k=5, entry_type=None):
+        calls.append((culture, entry_type))
+        return [{"culture": culture, "rule_text": "r", "note_type": "문화 이해", "similarity": 0.9}]
+
+    monkeypatch.setattr(service, "embed_one", lambda text: [0.0])
+    monkeypatch.setattr(service, "search_by_vector", fake_search)
+
+    asyncio.run(service._gather_rules(_req()))
+
+    assert calls == [("US", "rule"), ("VN", "rule")]  # 청자 문화별 1회, entry_type 고정
