@@ -7,6 +7,7 @@
 import json
 import logging
 
+from app.core.health import record_fail_open
 from app.core.llm import get_llm_client
 from app.prompts.translate import build_translate_prompt
 from app.schemas.common import Translation
@@ -23,6 +24,7 @@ async def translate(req: TranslateRequest) -> TranslateResponse:
         data = json.loads(raw)
         by_lang = {t.get("lang"): t.get("text", "") for t in data.get("translations", [])}
     except Exception:  # noqa: BLE001
+        record_fail_open("translate")
         logger.warning("번역 실패 → 빈 텍스트", exc_info=True)
 
     translations = [
