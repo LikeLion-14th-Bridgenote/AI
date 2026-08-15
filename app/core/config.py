@@ -28,14 +28,20 @@ class Settings(BaseSettings):
     embed_model: str = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
     embed_dim: int = 384
 
-    # 오해 감지 게이트 튜닝
-    # ⚠️ 캘리브레이션 값 — 코퍼스 적재 후 테스트셋(#8)으로 F1 최적점을 찾아 확정해야 함.
-    #    현 다국어 MiniLM은 교차언어 절대 유사도가 낮음(관련≈0.18 vs 무관≈0.15)이라
-    #    변별 마진이 얇다. 재현율/정밀도 부족 시 multilingual-e5-large(query:/passage: 프리픽스)로 교체 검토.
-    gate_base_threshold: float = 0.45  # risk_seed 매칭 기준 F1 최적점 (eval_gate.py, F1≈0.83)
-    gate_distance_sensitivity: float = 0.05  # 문화가 멀수록 문턱 낮춤(민감)
-    # 정상시드가 위험시드보다 이 값 이상 더 가까울 때만 탈락. 0이면 아주 미세한 차이도 탈락(옛 동작).
-    # 다국어 MiniLM은 마진이 얇아 STT 변형(띄어쓰기 등)이 자주 놓쳐 → 마진으로 재현율 확보.
+    # 오해 감지 게이트 튜닝 — 값 근거는 scripts/eval_gate.py (누수 없는 42건 기준)
+    #
+    # 판정식: risk_sim >= base - sensitivity * cultural_distance  AND  risk_sim >= neutral_sim - neutral_margin
+    #
+    # 실측하면 판정을 실제로 가르는 건 뒤쪽(risk vs neutral) 비교다. 42건 중 탈락 21건이
+    # 전부 그 비교에서 걸리고 문턱에서 걸리는 건 0건이다. 즉 아래 두 값은 지금
+    # 사실상 작동하지 않는다. sens를 0.8까지 올려도 F1이 0.88~0.90에서 움직이지 않는다.
+    # 값을 지우지 않는 이유는, 코퍼스가 커져 유사도 분포가 벌어지면 다시 의미를 갖기 때문이다.
+    # 자세한 진단은 이슈 #10 참고.
+    gate_base_threshold: float = 0.35  # 스윕 최고점 (F1 0.90, P 1.00 / R 0.82, 42건)
+    gate_distance_sensitivity: float = 0.05  # 문화가 멀수록 문턱을 낮춤 — 현재 영향 없음
+    # neutral 비교 완화 마진: risk_sim이 neutral_sim보다 이 값 이내로만 낮으면 통과시킨다.
+    # 다국어 MiniLM은 마진이 얇아 STT 변형(띄어쓰기 등) 완곡표현이 neutral에 살짝 밀려 놓치는 일이 잦음.
+    # (0 = 옛 동작: 아주 미세한 차이도 탈락) — eval_gate.py로 F1 재확인 후 조정 권장.
     gate_neutral_margin: float = 0.10
     gate_top_k: int = 5
 

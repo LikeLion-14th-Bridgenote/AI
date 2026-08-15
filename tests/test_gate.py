@@ -66,3 +66,27 @@ def test_distant_culture_lowers_threshold(monkeypatch):
     _patch(monkeypatch, similarity=sim)
     assert asyncio.run(gate.passes_gate(_req(listener_culture="US"))) is True
     assert asyncio.run(gate.passes_gate(_req(speaker_culture="KR", listener_culture="KR"))) is False
+
+
+def test_embed_one_caches_repeated_text(monkeypatch):
+    # 한 발화가 게이트와 각주 RAG 양쪽에서 임베딩된다. 같은 텍스트면 모델은 1회만 돌아야 한다.
+    from app.core import embeddings
+
+    calls = []
+
+    def fake_embed_texts(texts):
+        calls.append(list(texts))
+        return [[0.1, 0.2, 0.3]]
+
+    embeddings._embed_cached.cache_clear()
+    monkeypatch.setattr(embeddings, "embed_texts", fake_embed_texts)
+
+    a = embeddings.embed_one("네, 검토해보겠습니다")
+    b = embeddings.embed_one("네, 검토해보겠습니다")
+    assert len(calls) == 1 and a == b == [0.1, 0.2, 0.3]
+
+    embeddings.embed_one("다른 문장")
+    assert len(calls) == 2  # 텍스트가 다르면 새로 계산
+
+    a.append(999)  # 호출부가 리스트를 변형해도 캐시는 오염되지 않아야 한다
+    assert embeddings.embed_one("네, 검토해보겠습니다") == [0.1, 0.2, 0.3]

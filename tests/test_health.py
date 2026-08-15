@@ -51,3 +51,71 @@ def test_translate_stub():
     r = client.post("/ai/translate", json=payload)
     assert r.status_code == 200
     assert r.json()["sentence_id"] == "u2"
+
+
+def _patch_deep(monkeypatch, *, corpus_rows=None, corpus_raises=False, embed_dim=384):
+    """deep 헬스체크의 외부 의존(임베딩·DB)을 갈아끼운다.
+
+    핸들러가 함수 안에서 import하므로 원본 모듈 속성을 갈아끼워야 한다.
+    """
+    monkeypatch.setattr("app.core.embeddings.embed_one", lambda text: [0.0] * embed_dim)
+
+    async def fake_search(vec, culture, top_k=5, entry_type=None):
+        if corpus_raises:
+            raise RuntimeError("relation does not exist")
+        return corpus_rows if corpus_rows is not None else [{"rule_text": "r"}]
+
+    monkeypatch.setattr("app.rag.corpus.search_by_vector", fake_search)
+
+
+def test_health_deep_ok(monkeypatch):
+    from app.core import health as health_mod
+    from app.core.config import get_settings
+
+    health_mod.reset()
+    s = get_settings()
+    monkeypatch.setattr(s, "llm_api_key", "sk-test", raising=False)
+    monkeypatch.setattr(s, "supabase_db_url", "postgresql://x", raising=False)
+    _patch_deep(monkeypatch)
+
+    body = client.get("/health/deep").json()
+    assert body["status"] == "ok"
+    assert all(c["ok"] for c in body["checks"].values())
+    assert body["fail_open"] == {}
+
+
+def test_health_deep_reports_dead_corpus(monkeypatch):
+    # 각주가 조용히 꺼진 상태를 여기서는 잡아내야 한다 (/health는 못 잡는다).
+    from app.core import health as health_mod
+    from app.core.config import get_settings
+
+    health_mod.reset()
+    s = get_settings()
+    monkeypatch.setattr(s, "llm_api_key", "sk-test", raising=False)
+    monkeypatch.setattr(s, "supabase_db_url", "postgresql://x", raising=False)
+    _patch_deep(monkeypatch, corpus_raises=True)
+
+    body = client.get("/health/deep").json()
+    assert body["status"] == "degraded"
+    assert body["checks"]["corpus"]["ok"] is False
+    assert "RuntimeError" in body["checks"]["corpus"]["detail"]
+    assert client.get("/health").json()["status"] == "ok"  # 얕은 쪽은 여전히 ok
+
+
+def test_health_deep_shows_fail_open_counts(monkeypatch):
+    from app.core import health as health_mod
+    from app.core.config import get_settings
+
+    health_mod.reset()
+    health_mod.record_fail_open("gate")
+    health_mod.record_fail_open("gate")
+    health_mod.record_fail_open("note")
+
+    s = get_settings()
+    monkeypatch.setattr(s, "llm_api_key", "sk-test", raising=False)
+    monkeypatch.setattr(s, "supabase_db_url", "postgresql://x", raising=False)
+    _patch_deep(monkeypatch)
+
+    body = client.get("/health/deep").json()
+    assert body["fail_open"] == {"gate": 2, "note": 1}
+    health_mod.reset()
