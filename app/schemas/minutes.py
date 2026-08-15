@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field
 class MinutesUtterance(BaseModel):
     """회의록 생성 입력: 세션 로그의 발화 한 건."""
 
-    utterance_id: str
+    sentence_id: str
     speaker: Optional[str] = None
     lang: str
     text: str
@@ -21,14 +21,22 @@ class MinutesRequest(BaseModel):
     utterances: List[MinutesUtterance] = Field(default_factory=list)
 
 
+class ActionItem(BaseModel):
+    """액션 아이템 — 동균 UI '액션 탭'(담당자/기한 컬럼)과 정합."""
+
+    task: str
+    owner: Optional[str] = None
+    deadline: Optional[str] = None
+
+
 class MinutesSection(BaseModel):
     """언어·직무별 회의록 한 섹션 (결정/논의/액션)."""
 
     language: str
-    job_role: Optional[str] = None
+    job_role: Optional[str] = None  # 동균 FE가 item.job_role로 읽음 (프로필 job과 별개)
     decisions: List[str] = Field(default_factory=list)
     discussions: List[str] = Field(default_factory=list)
-    action_items: List[str] = Field(default_factory=list)
+    action_items: List[ActionItem] = Field(default_factory=list)
 
 
 class MinutesResponse(BaseModel):

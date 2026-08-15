@@ -126,3 +126,178 @@
 {"culture": "US", "note_type": "위계", "rule_text": "Trust is task-based: credibility comes from competence and delivering results, not primarily from personal relationship.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "us-0018"}
 {"culture": "US", "note_type": "위계", "rule_text": "High individualism (IDV 91): people advocate their own views and take individual initiative and credit.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "us-0019"}
 {"culture": "US", "note_type": "직설성", "rule_text": "Small talk is brief and transactional; relationship-building is not a prerequisite to doing business.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "us-0020"}
+{"culture": "JP", "note_type": "직설성", "rule_text": "Japanese communication separates honne (true feeling) from tatemae (public stance); the stated position may not be the real one.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "jp-0001"}
+{"culture": "JP", "note_type": "직설성", "rule_text": "High-context: much is left unsaid and inferred from situation; low-context listeners miss the implied message.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "jp-0002"}
+{"culture": "JP", "note_type": "직설성", "rule_text": "Direct refusal is avoided; 'chotto...'(ちょっと), 'kangaete okimasu'(検討します/we'll consider) or drawn-in breath usually means no.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "jp-0003"}
+{"culture": "JP", "note_type": "직설성", "rule_text": "A 'hai'(はい) often means 'I'm listening', not agreement or commitment.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "jp-0004"}
+{"culture": "JP", "note_type": "직설성", "rule_text": "Silence is meaningful — it can signal disagreement, careful thought, or discomfort, not consent.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "jp-0005"}
+{"culture": "JP", "note_type": "피드백", "rule_text": "Negative feedback is highly indirect and private; public criticism causes serious loss of face.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "jp-0006"}
+{"culture": "JP", "note_type": "피드백", "rule_text": "Problems are raised softly or through a third party (nemawashi) rather than head-on.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "jp-0007"}
+{"culture": "JP", "note_type": "피드백", "rule_text": "Understatement is common; a mild concern can signal a serious objection.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "jp-0008"}
+{"culture": "JP", "note_type": "대립", "rule_text": "Group harmony (wa 和) is prioritized; open confrontation is strongly avoided.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "jp-0009"}
+{"culture": "JP", "note_type": "대립", "rule_text": "Consensus is built informally beforehand (nemawashi); the meeting ratifies rather than debates.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "jp-0010"}
+{"culture": "JP", "note_type": "대립", "rule_text": "Instead of contradicting, a speaker may stay silent, defer, or postpone the decision.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "jp-0011"}
+{"culture": "JP", "note_type": "위계", "rule_text": "Seniority (senpai/kohai) and rank strongly shape who speaks and how; juniors rarely challenge seniors.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "jp-0012"}
+{"culture": "JP", "note_type": "위계", "rule_text": "Honorific speech (keigo) encodes hierarchy; the wrong register reads as disrespect.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "jp-0013"}
+{"culture": "JP", "note_type": "위계", "rule_text": "Very high uncertainty avoidance (UAI 92) → strong preference for detailed rules, process, and preparation; ambiguity is uncomfortable.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "jp-0014"}
+{"culture": "JP", "note_type": "위계", "rule_text": "Decisions flow through the group and up the hierarchy; individual off-the-cuff commitments are rare.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "jp-0015"}
+{"culture": "JP", "note_type": "직설성", "rule_text": "A vague or deferred reply ('we'll consider it') is typically a polite decline, not an open question.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "jp-0016"}
+{"culture": "IN", "note_type": "직설성", "rule_text": "High power distance (PDI 77) shapes speech: what juniors say to seniors is softened and deferential.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "in-0001"}
+{"culture": "IN", "note_type": "직설성", "rule_text": "A polite 'yes' or 'I'll try' can be a face-saving way to avoid saying no.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "in-0002"}
+{"culture": "IN", "note_type": "직설성", "rule_text": "Communication is relatively high-context and relationship-sensitive; blunt refusals are avoided to preserve rapport.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "in-0003"}
+{"culture": "IN", "note_type": "직설성", "rule_text": "'It will be done' may express willingness or optimism rather than a firm, time-bound commitment.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "in-0004"}
+{"culture": "IN", "note_type": "피드백", "rule_text": "Negative feedback to a senior is given very indirectly, or not at all in public.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "in-0005"}
+{"culture": "IN", "note_type": "피드백", "rule_text": "Criticism is often wrapped in positive framing and delivered privately to protect the relationship.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "in-0006"}
+{"culture": "IN", "note_type": "피드백", "rule_text": "Silence or agreement in front of a boss may not reflect real agreement — concerns surface privately.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "in-0007"}
+{"culture": "IN", "note_type": "대립", "rule_text": "Open disagreement with a senior is uncommon; deference to authority and elders is strong.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "in-0008"}
+{"culture": "IN", "note_type": "대립", "rule_text": "Harmony within the group and hierarchy is prioritized over blunt factual correction.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "in-0009"}
+{"culture": "IN", "note_type": "대립", "rule_text": "Pushback tends to come through questions, delays, or intermediaries rather than direct contradiction.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "in-0010"}
+{"culture": "IN", "note_type": "위계", "rule_text": "Titles, age, and seniority are strongly respected; decisions concentrate at senior levels.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "in-0011"}
+{"culture": "IN", "note_type": "위계", "rule_text": "Subordinates often wait to be invited to speak rather than volunteering dissent.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "in-0012"}
+{"culture": "IN", "note_type": "위계", "rule_text": "Trust is relationship-based; personal rapport is built before and alongside business.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "in-0013"}
+{"culture": "IN", "note_type": "위계", "rule_text": "A junior's deference to a manager's proposal usually signals respect, not necessarily endorsement.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "in-0014"}
+{"culture": "IN", "note_type": "직설성", "rule_text": "Flexible-time orientation: a committed deadline may be treated as a target rather than a hard cutoff.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "in-0015"}
+{"culture": "DE", "note_type": "직설성", "rule_text": "German communication is low-context and explicit; say exactly what you mean and take words literally.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "de-0001"}
+{"culture": "DE", "note_type": "직설성", "rule_text": "A direct 'no' is normal and not rude; hints and hedging are often missed.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "de-0002"}
+{"culture": "DE", "note_type": "직설성", "rule_text": "Separating facts from feelings is valued; blunt statements are read as honesty, not aggression.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "de-0003"}
+{"culture": "DE", "note_type": "피드백", "rule_text": "Negative feedback is direct and explicit, given without much softening; criticism targets the issue, not the person.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "de-0004"}
+{"culture": "DE", "note_type": "피드백", "rule_text": "Praise is used sparingly; absence of criticism generally means things are fine.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "de-0005"}
+{"culture": "DE", "note_type": "대립", "rule_text": "Open disagreement and debate are acceptable and seen as productive, not relationship-damaging.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "de-0006"}
+{"culture": "DE", "note_type": "대립", "rule_text": "Challenging an idea directly in a meeting is expected and separated from personal respect.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "de-0007"}
+{"culture": "DE", "note_type": "위계", "rule_text": "Relatively low power distance (PDI 35): juniors may question superiors and expect to be consulted.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "de-0008"}
+{"culture": "DE", "note_type": "위계", "rule_text": "High uncertainty avoidance (UAI 65): strong preference for rules, structure, plans, and thorough preparation.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "de-0009"}
+{"culture": "DE", "note_type": "위계", "rule_text": "Trust is task-based: credibility comes from competence and reliability, not personal relationship.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "de-0010"}
+{"culture": "DE", "note_type": "직설성", "rule_text": "Punctuality and precise commitments are expected; a stated deadline is a firm commitment.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "de-0011"}
+{"culture": "DE", "note_type": "직설성", "rule_text": "When a German speaker gives a plain factual objection, it's information — not hostility.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "de-0012"}
+{"culture": "DE", "note_type": "피드백", "rule_text": "Understatement is uncommon; if something is called a problem, it is meant seriously.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "de-0013"}
+{"culture": "DE", "note_type": "대립", "rule_text": "Consensus is reached through open argument in the meeting, not quietly beforehand.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "de-0014"}
+{"culture": "DE", "note_type": "직설성", "rule_text": "A German 'yes' means agreement and commitment; ambiguity is minimized.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "de-0015"}
+{"culture": "GB", "note_type": "직설성", "rule_text": "British English relies on understatement; 'quite good' can mean mediocre and 'not bad' can mean good.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "gb-0001"}
+{"culture": "GB", "note_type": "직설성", "rule_text": "Politeness softens messages; 'with respect' or 'I hear you' often precedes disagreement.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "gb-0002"}
+{"culture": "GB", "note_type": "직설성", "rule_text": "Requests are indirect ('would you mind...'); a low-context listener may miss the actual ask.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "gb-0003"}
+{"culture": "GB", "note_type": "직설성", "rule_text": "'I'll bear it in mind' / 'interesting' is frequently a polite decline, not real interest.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "gb-0004"}
+{"culture": "GB", "note_type": "피드백", "rule_text": "Negative feedback is wrapped in positives and delivered gently — more indirect than US or German.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "gb-0005"}
+{"culture": "GB", "note_type": "피드백", "rule_text": "Criticism is often implied through faint praise or humor rather than stated plainly.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "gb-0006"}
+{"culture": "GB", "note_type": "대립", "rule_text": "Disagreement is expressed diplomatically, sometimes through irony or self-deprecation, not blunt contradiction.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "gb-0007"}
+{"culture": "GB", "note_type": "대립", "rule_text": "Confrontation is acceptable but expected to stay polite and measured.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "gb-0008"}
+{"culture": "GB", "note_type": "위계", "rule_text": "Low power distance (PDI 35): egalitarian tone, first names, juniors may speak up.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "gb-0009"}
+{"culture": "GB", "note_type": "위계", "rule_text": "Trust is task-based; competence and delivering matter more than rank.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "gb-0010"}
+{"culture": "GB", "note_type": "직설성", "rule_text": "Overt enthusiasm is rare; measured language ('reasonably pleased') can signal genuine satisfaction.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "gb-0011"}
+{"culture": "GB", "note_type": "피드백", "rule_text": "A very mild remark ('one small thing') may actually flag a significant concern.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "gb-0012"}
+{"culture": "GB", "note_type": "대립", "rule_text": "Small talk and humor lubricate meetings but are not the substance; read the understated core.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "gb-0013"}
+{"culture": "GB", "note_type": "직설성", "rule_text": "A polite 'we should definitely do that sometime' may be courtesy rather than a real plan.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "gb-0014"}
+{"culture": "GB", "note_type": "위계", "rule_text": "Individualist (IDV 89): people state their own view and take individual initiative.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "gb-0015"}
+{"culture": "SG", "note_type": "직설성", "rule_text": "English is the working language, but pragmatics are high-context and face-sensitive — meaning sits in tone and situation.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "sg-0001"}
+{"culture": "SG", "note_type": "직설성", "rule_text": "Direct refusal is softened; 'will try', 'can lah', or 'let me check' can mean no or 'not sure'.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "sg-0002"}
+{"culture": "SG", "note_type": "직설성", "rule_text": "A quick 'can' or 'okay' may be politeness or acknowledgement rather than firm commitment.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "sg-0003"}
+{"culture": "SG", "note_type": "직설성", "rule_text": "Silence or hedging often signals reservation, not consent.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "sg-0004"}
+{"culture": "SG", "note_type": "피드백", "rule_text": "Negative feedback is given indirectly and privately to protect face.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "sg-0005"}
+{"culture": "SG", "note_type": "피드백", "rule_text": "Public criticism of a senior is avoided; concerns are raised quietly or through intermediaries.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "sg-0006"}
+{"culture": "SG", "note_type": "대립", "rule_text": "Group harmony is prioritized; open confrontation is avoided even when disagreeing.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "sg-0007"}
+{"culture": "SG", "note_type": "대립", "rule_text": "Disagreement surfaces as questions, deferral, or 'let me get back to you' rather than direct contradiction.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "sg-0008"}
+{"culture": "SG", "note_type": "위계", "rule_text": "High power distance (PDI 74): seniority and authority are respected; juniors defer to bosses and elders.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "sg-0009"}
+{"culture": "SG", "note_type": "위계", "rule_text": "Subordinates often wait to be invited before voicing dissent in front of a superior.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "sg-0010"}
+{"culture": "SG", "note_type": "위계", "rule_text": "Trust is relationship-based; rapport and personal ties are built alongside business.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "sg-0011"}
+{"culture": "SG", "note_type": "위계", "rule_text": "A junior's agreement with a manager may reflect deference, not genuine endorsement.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "sg-0012"}
+{"culture": "SG", "note_type": "직설성", "rule_text": "Despite low uncertainty avoidance (UAI 8), interpersonal messaging stays indirect to keep harmony.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "sg-0013"}
+{"culture": "SG", "note_type": "직설성", "rule_text": "Multicultural context (Chinese/Malay/Indian/Western) means register shifts by counterpart — read the person, not just the words.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "sg-0014"}
+{"culture": "SG", "note_type": "피드백", "rule_text": "A mild or roundabout comment can carry a stronger underlying objection than its wording suggests.", "entry_type": "rule", "source": "framework:hofstede+culturemap+hall", "id": "sg-0015"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "네, 검토해보겠습니다", "entry_type": "risk_seed", "source": "curated", "id": "kr-0046"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "생각해보겠습니다", "entry_type": "risk_seed", "source": "curated", "id": "kr-0047"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "한번 보겠습니다", "entry_type": "risk_seed", "source": "curated", "id": "kr-0048"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "고민해보겠습니다", "entry_type": "risk_seed", "source": "curated", "id": "kr-0049"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "그건 좀 어려울 것 같은데요", "entry_type": "risk_seed", "source": "curated", "id": "kr-0050"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "좀 애매한데요", "entry_type": "risk_seed", "source": "curated", "id": "kr-0051"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "글쎄요, 상황을 봐야 할 것 같아요", "entry_type": "risk_seed", "source": "curated", "id": "kr-0052"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "최대한 해보겠습니다", "entry_type": "risk_seed", "source": "curated", "id": "kr-0053"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "일정이 좀 타이트하네요", "entry_type": "risk_seed", "source": "curated", "id": "kr-0054"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "네네 알겠습니다", "entry_type": "risk_seed", "source": "curated", "id": "kr-0055"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "긍정적으로 검토하겠습니다", "entry_type": "risk_seed", "source": "curated", "id": "kr-0056"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "다음에 기회가 되면", "entry_type": "risk_seed", "source": "curated", "id": "kr-0057"}
+{"culture": "KR", "note_type": "위험표현", "rule_text": "좀 더 논의가 필요할 것 같습니다", "entry_type": "risk_seed", "source": "curated", "id": "kr-0058"}
+{"culture": "JP", "note_type": "위험표현", "rule_text": "検討します", "entry_type": "risk_seed", "source": "curated", "id": "jp-0017"}
+{"culture": "JP", "note_type": "위험표현", "rule_text": "検討させていただきます", "entry_type": "risk_seed", "source": "curated", "id": "jp-0018"}
+{"culture": "JP", "note_type": "위험표현", "rule_text": "難しいかもしれません", "entry_type": "risk_seed", "source": "curated", "id": "jp-0019"}
+{"culture": "JP", "note_type": "위험표현", "rule_text": "ちょっと厳しいですね", "entry_type": "risk_seed", "source": "curated", "id": "jp-0020"}
+{"culture": "JP", "note_type": "위험표현", "rule_text": "前向きに検討します", "entry_type": "risk_seed", "source": "curated", "id": "jp-0021"}
+{"culture": "JP", "note_type": "위험표현", "rule_text": "考えておきます", "entry_type": "risk_seed", "source": "curated", "id": "jp-0022"}
+{"culture": "JP", "note_type": "위험표현", "rule_text": "善処します", "entry_type": "risk_seed", "source": "curated", "id": "jp-0023"}
+{"culture": "JP", "note_type": "위험표현", "rule_text": "そうですね…（間）", "entry_type": "risk_seed", "source": "curated", "id": "jp-0024"}
+{"culture": "VN", "note_type": "위험표현", "rule_text": "để tôi xem xét", "entry_type": "risk_seed", "source": "curated", "id": "vn-0024"}
+{"culture": "VN", "note_type": "위험표현", "rule_text": "có thể hơi khó", "entry_type": "risk_seed", "source": "curated", "id": "vn-0025"}
+{"culture": "VN", "note_type": "위험표현", "rule_text": "tôi sẽ cố gắng", "entry_type": "risk_seed", "source": "curated", "id": "vn-0026"}
+{"culture": "VN", "note_type": "위험표현", "rule_text": "vâng (dạ) — chỉ là lịch sự", "entry_type": "risk_seed", "source": "curated", "id": "vn-0027"}
+{"culture": "VN", "note_type": "위험표현", "rule_text": "để tôi kiểm tra lại", "entry_type": "risk_seed", "source": "curated", "id": "vn-0028"}
+{"culture": "VN", "note_type": "위험표현", "rule_text": "chắc là được", "entry_type": "risk_seed", "source": "curated", "id": "vn-0029"}
+{"culture": "CN", "note_type": "위험표현", "rule_text": "我再看看", "entry_type": "risk_seed", "source": "curated", "id": "cn-0041"}
+{"culture": "CN", "note_type": "위험표현", "rule_text": "考虑一下", "entry_type": "risk_seed", "source": "curated", "id": "cn-0042"}
+{"culture": "CN", "note_type": "위험표현", "rule_text": "以后再说", "entry_type": "risk_seed", "source": "curated", "id": "cn-0043"}
+{"culture": "CN", "note_type": "위험표현", "rule_text": "有点难", "entry_type": "risk_seed", "source": "curated", "id": "cn-0044"}
+{"culture": "CN", "note_type": "위험표현", "rule_text": "研究研究", "entry_type": "risk_seed", "source": "curated", "id": "cn-0045"}
+{"culture": "CN", "note_type": "위험표현", "rule_text": "尽量吧", "entry_type": "risk_seed", "source": "curated", "id": "cn-0046"}
+{"culture": "CN", "note_type": "위험표현", "rule_text": "再说吧", "entry_type": "risk_seed", "source": "curated", "id": "cn-0047"}
+{"culture": "IN", "note_type": "위험표현", "rule_text": "I will try my best", "entry_type": "risk_seed", "source": "curated", "id": "in-0016"}
+{"culture": "IN", "note_type": "위험표현", "rule_text": "we will see", "entry_type": "risk_seed", "source": "curated", "id": "in-0017"}
+{"culture": "IN", "note_type": "위험표현", "rule_text": "let me check and revert", "entry_type": "risk_seed", "source": "curated", "id": "in-0018"}
+{"culture": "IN", "note_type": "위험표현", "rule_text": "it should be possible", "entry_type": "risk_seed", "source": "curated", "id": "in-0019"}
+{"culture": "IN", "note_type": "위험표현", "rule_text": "I'll do the needful", "entry_type": "risk_seed", "source": "curated", "id": "in-0020"}
+{"culture": "IN", "note_type": "위험표현", "rule_text": "maybe, let's see", "entry_type": "risk_seed", "source": "curated", "id": "in-0021"}
+{"culture": "US", "note_type": "위험표현", "rule_text": "that could be better", "entry_type": "risk_seed", "source": "curated", "id": "us-0021"}
+{"culture": "US", "note_type": "위험표현", "rule_text": "I have some concerns", "entry_type": "risk_seed", "source": "curated", "id": "us-0022"}
+{"culture": "US", "note_type": "위험표현", "rule_text": "let's take this offline", "entry_type": "risk_seed", "source": "curated", "id": "us-0023"}
+{"culture": "US", "note_type": "위험표현", "rule_text": "interesting, let me think about it", "entry_type": "risk_seed", "source": "curated", "id": "us-0024"}
+{"culture": "GB", "note_type": "위험표현", "rule_text": "I'll bear it in mind", "entry_type": "risk_seed", "source": "curated", "id": "gb-0016"}
+{"culture": "GB", "note_type": "위험표현", "rule_text": "that's quite interesting", "entry_type": "risk_seed", "source": "curated", "id": "gb-0017"}
+{"culture": "GB", "note_type": "위험표현", "rule_text": "with the greatest respect", "entry_type": "risk_seed", "source": "curated", "id": "gb-0018"}
+{"culture": "GB", "note_type": "위험표현", "rule_text": "it's not bad", "entry_type": "risk_seed", "source": "curated", "id": "gb-0019"}
+{"culture": "GB", "note_type": "위험표현", "rule_text": "we should do that sometime", "entry_type": "risk_seed", "source": "curated", "id": "gb-0020"}
+{"culture": "GB", "note_type": "위험표현", "rule_text": "I'm not entirely sure that's wise", "entry_type": "risk_seed", "source": "curated", "id": "gb-0021"}
+{"culture": "DE", "note_type": "위험표현", "rule_text": "das ist schwierig", "entry_type": "risk_seed", "source": "curated", "id": "de-0016"}
+{"culture": "DE", "note_type": "위험표현", "rule_text": "wir werden sehen", "entry_type": "risk_seed", "source": "curated", "id": "de-0017"}
+{"culture": "SG", "note_type": "위험표현", "rule_text": "will try lah", "entry_type": "risk_seed", "source": "curated", "id": "sg-0016"}
+{"culture": "SG", "note_type": "위험표현", "rule_text": "can can, let me check", "entry_type": "risk_seed", "source": "curated", "id": "sg-0017"}
+{"culture": "SG", "note_type": "위험표현", "rule_text": "we'll get back to you", "entry_type": "risk_seed", "source": "curated", "id": "sg-0018"}
+{"culture": "SG", "note_type": "위험표현", "rule_text": "a bit tricky leh", "entry_type": "risk_seed", "source": "curated", "id": "sg-0019"}
+{"culture": "SG", "note_type": "위험표현", "rule_text": "see how first", "entry_type": "risk_seed", "source": "curated", "id": "sg-0020"}
+{"culture": "KR", "note_type": "정상", "rule_text": "파일 첨부했습니다", "entry_type": "neutral_seed", "source": "curated", "id": "kr-0059"}
+{"culture": "KR", "note_type": "정상", "rule_text": "회의는 3시에 시작합니다", "entry_type": "neutral_seed", "source": "curated", "id": "kr-0060"}
+{"culture": "KR", "note_type": "정상", "rule_text": "다음 회의는 금요일입니다", "entry_type": "neutral_seed", "source": "curated", "id": "kr-0061"}
+{"culture": "KR", "note_type": "정상", "rule_text": "화면 공유하겠습니다", "entry_type": "neutral_seed", "source": "curated", "id": "kr-0062"}
+{"culture": "KR", "note_type": "정상", "rule_text": "안녕하세요 회의 시작하겠습니다", "entry_type": "neutral_seed", "source": "curated", "id": "kr-0063"}
+{"culture": "KR", "note_type": "정상", "rule_text": "감사합니다 수고하셨습니다", "entry_type": "neutral_seed", "source": "curated", "id": "kr-0064"}
+{"culture": "KR", "note_type": "정상", "rule_text": "예산은 5천만 원입니다", "entry_type": "neutral_seed", "source": "curated", "id": "kr-0065"}
+{"culture": "KR", "note_type": "정상", "rule_text": "테스트 커버리지 85%입니다", "entry_type": "neutral_seed", "source": "curated", "id": "kr-0066"}
+{"culture": "KR", "note_type": "정상", "rule_text": "자료 메일로 보냈습니다", "entry_type": "neutral_seed", "source": "curated", "id": "kr-0067"}
+{"culture": "KR", "note_type": "정상", "rule_text": "10분 후에 다시 시작하겠습니다", "entry_type": "neutral_seed", "source": "curated", "id": "kr-0068"}
+{"culture": "US", "note_type": "정상", "rule_text": "The build passed all tests", "entry_type": "neutral_seed", "source": "curated", "id": "us-0025"}
+{"culture": "US", "note_type": "정상", "rule_text": "Please find the report attached", "entry_type": "neutral_seed", "source": "curated", "id": "us-0026"}
+{"culture": "US", "note_type": "정상", "rule_text": "The deadline is Monday", "entry_type": "neutral_seed", "source": "curated", "id": "us-0027"}
+{"culture": "US", "note_type": "정상", "rule_text": "Our office is on the third floor", "entry_type": "neutral_seed", "source": "curated", "id": "us-0028"}
+{"culture": "US", "note_type": "정상", "rule_text": "I've pushed the changes", "entry_type": "neutral_seed", "source": "curated", "id": "us-0029"}
+{"culture": "US", "note_type": "정상", "rule_text": "Let's start the meeting", "entry_type": "neutral_seed", "source": "curated", "id": "us-0030"}
+{"culture": "US", "note_type": "정상", "rule_text": "The budget is fifty thousand", "entry_type": "neutral_seed", "source": "curated", "id": "us-0031"}
+{"culture": "US", "note_type": "정상", "rule_text": "Here's the agenda for today", "entry_type": "neutral_seed", "source": "curated", "id": "us-0032"}
+{"culture": "JP", "note_type": "정상", "rule_text": "資料を添付しました", "entry_type": "neutral_seed", "source": "curated", "id": "jp-0025"}
+{"culture": "JP", "note_type": "정상", "rule_text": "会議は3時からです", "entry_type": "neutral_seed", "source": "curated", "id": "jp-0026"}
+{"culture": "JP", "note_type": "정상", "rule_text": "画面を共有します", "entry_type": "neutral_seed", "source": "curated", "id": "jp-0027"}
+{"culture": "JP", "note_type": "정상", "rule_text": "お疲れ様でした", "entry_type": "neutral_seed", "source": "curated", "id": "jp-0028"}
+{"culture": "VN", "note_type": "정상", "rule_text": "tôi đã đính kèm tệp", "entry_type": "neutral_seed", "source": "curated", "id": "vn-0030"}
+{"culture": "VN", "note_type": "정상", "rule_text": "cuộc họp lúc 3 giờ", "entry_type": "neutral_seed", "source": "curated", "id": "vn-0031"}
+{"culture": "VN", "note_type": "정상", "rule_text": "tôi sẽ chia sẻ màn hình", "entry_type": "neutral_seed", "source": "curated", "id": "vn-0032"}
+{"culture": "CN", "note_type": "정상", "rule_text": "文件已附上", "entry_type": "neutral_seed", "source": "curated", "id": "cn-0048"}
+{"culture": "CN", "note_type": "정상", "rule_text": "会议三点开始", "entry_type": "neutral_seed", "source": "curated", "id": "cn-0049"}
+{"culture": "CN", "note_type": "정상", "rule_text": "我来共享屏幕", "entry_type": "neutral_seed", "source": "curated", "id": "cn-0050"}
+{"culture": "CN", "note_type": "정상", "rule_text": "预算是五千万", "entry_type": "neutral_seed", "source": "curated", "id": "cn-0051"}
+{"culture": "GB", "note_type": "정상", "rule_text": "I've attached the file", "entry_type": "neutral_seed", "source": "curated", "id": "gb-0022"}
+{"culture": "GB", "note_type": "정상", "rule_text": "the meeting starts at three", "entry_type": "neutral_seed", "source": "curated", "id": "gb-0023"}
+{"culture": "GB", "note_type": "정상", "rule_text": "let's begin", "entry_type": "neutral_seed", "source": "curated", "id": "gb-0024"}
+{"culture": "GB", "note_type": "정상", "rule_text": "I've sent the report", "entry_type": "neutral_seed", "source": "curated", "id": "gb-0025"}
+{"culture": "DE", "note_type": "정상", "rule_text": "die Datei ist angehängt", "entry_type": "neutral_seed", "source": "curated", "id": "de-0018"}
+{"culture": "DE", "note_type": "정상", "rule_text": "das Meeting beginnt um drei", "entry_type": "neutral_seed", "source": "curated", "id": "de-0019"}
+{"culture": "DE", "note_type": "정상", "rule_text": "ich teile den Bildschirm", "entry_type": "neutral_seed", "source": "curated", "id": "de-0020"}
+{"culture": "IN", "note_type": "정상", "rule_text": "I have attached the file", "entry_type": "neutral_seed", "source": "curated", "id": "in-0022"}
+{"culture": "IN", "note_type": "정상", "rule_text": "the meeting is at 3 PM", "entry_type": "neutral_seed", "source": "curated", "id": "in-0023"}
+{"culture": "IN", "note_type": "정상", "rule_text": "sharing my screen now", "entry_type": "neutral_seed", "source": "curated", "id": "in-0024"}
+{"culture": "SG", "note_type": "정상", "rule_text": "file attached already", "entry_type": "neutral_seed", "source": "curated", "id": "sg-0021"}
+{"culture": "SG", "note_type": "정상", "rule_text": "meeting at 3", "entry_type": "neutral_seed", "source": "curated", "id": "sg-0022"}
+{"culture": "SG", "note_type": "정상", "rule_text": "sharing screen now", "entry_type": "neutral_seed", "source": "curated", "id": "sg-0023"}

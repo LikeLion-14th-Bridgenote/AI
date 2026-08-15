@@ -66,7 +66,7 @@ def build_user_prompt(
     """게이트 통과 발화 → 각주 생성용 유저 프롬프트."""
     listeners = "\n".join(
         f"  - participant_id={l.participant_id}, lang={l.lang}, "
-        f"culture={l.culture}, job={l.job_role}"
+        f"culture={l.culture}, job={l.job}"
         for l in req.listeners
     )
     rule_lines = "\n".join(f"  - [{r.get('culture')}] {r['rule_text']}" for r in rules) or "  (none)"
@@ -78,7 +78,7 @@ def build_user_prompt(
         f"# Utterance\n"
         f'  text: "{req.source_text}"\n'
         f"  source_lang: {req.source_lang}\n"
-        f"  speaker: culture={req.speaker.culture}, job={req.speaker.job_role}\n"
+        f"  speaker: culture={req.speaker.culture}, job={req.speaker.job}\n"
         f"  meeting_context: {req.meeting_context or '(none)'}\n\n"
         f"# Listeners\n{listeners}\n\n"
         f"# Prior turns (판단용 직전 맥락)\n{context}\n\n"

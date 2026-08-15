@@ -70,5 +70,95 @@
       "disagreeing": "confrontation acceptable",
       "trusting": "task-based"
     }
+  },
+  "JP": {
+    "name": "Japan",
+    "hofstede": {
+      "PDI": 54,
+      "IDV": 46,
+      "MAS": 95,
+      "UAI": 92,
+      "LTO": 88,
+      "IVR": 42
+    },
+    "culturemap": {
+      "communicating": "high-context",
+      "evaluating": "indirect negative feedback",
+      "leading": "hierarchical",
+      "disagreeing": "avoids confrontation",
+      "trusting": "relationship-based"
+    }
+  },
+  "IN": {
+    "name": "India",
+    "hofstede": {
+      "PDI": 77,
+      "IDV": 48,
+      "MAS": 56,
+      "UAI": 40,
+      "LTO": 51,
+      "IVR": 26
+    },
+    "culturemap": {
+      "communicating": "high-context",
+      "evaluating": "indirect negative feedback",
+      "leading": "hierarchical",
+      "disagreeing": "avoids confrontation",
+      "trusting": "relationship-based"
+    }
+  },
+  "DE": {
+    "name": "Germany",
+    "hofstede": {
+      "PDI": 35,
+      "IDV": 67,
+      "MAS": 66,
+      "UAI": 65,
+      "LTO": 83,
+      "IVR": 40
+    },
+    "culturemap": {
+      "communicating": "low-context",
+      "evaluating": "direct negative feedback",
+      "leading": "egalitarian",
+      "disagreeing": "confrontation acceptable",
+      "trusting": "task-based"
+    }
+  },
+  "GB": {
+    "name": "United Kingdom",
+    "hofstede": {
+      "PDI": 35,
+      "IDV": 89,
+      "MAS": 66,
+      "UAI": 35,
+      "LTO": 51,
+      "IVR": 69
+    },
+    "culturemap": {
+      "communicating": "low-context (with understatement)",
+      "evaluating": "indirect negative feedback",
+      "leading": "egalitarian",
+      "disagreeing": "confrontation acceptable but diplomatic",
+      "trusting": "task-based"
+    }
+  },
+  "SG": {
+    "name": "Singapore",
+    "hofstede": {
+      "PDI": 74,
+      "IDV": 20,
+      "MAS": 48,
+      "UAI": 8,
+      "LTO": 72,
+      "IVR": 46
+    },
+    "culturemap": {
+      "communicating": "high-context",
+      "evaluating": "indirect negative feedback",
+      "leading": "hierarchical",
+      "disagreeing": "avoids confrontation",
+      "trusting": "relationship-based"
+    }
   }
 }
