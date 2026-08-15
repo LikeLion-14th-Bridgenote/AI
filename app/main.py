@@ -1,3 +1,5 @@
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
@@ -5,10 +7,24 @@ from fastapi.responses import JSONResponse
 
 from app.api import analyze, minutes, translate
 
+
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    """종료 시 코퍼스 커넥션 풀 정리.
+
+    풀은 첫 검색 때 지연 생성한다(기동 시 DB에 붙지 않아야 DB가 늦게 떠도 서버가 뜬다).
+    """
+    yield
+    from app.rag.corpus import close_pool
+
+    close_pool()
+
+
 app = FastAPI(
     title="Bridgenote AI",
     description="번역·문화 오해 분석·회의록 생성 (내부 호출 전용 — Spring BE가 호출)",
     version="0.0.1",
+    lifespan=lifespan,
 )
 
 # 내부 호출 전제라 CORS는 원칙적으로 불필요하나, 로컬 개발 편의상 허용.

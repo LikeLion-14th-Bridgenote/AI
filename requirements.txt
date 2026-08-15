@@ -7,7 +7,7 @@ httpx>=0.27
 
 # 임베딩 게이트 / RAG
 fastembed>=0.4          # 로컬 다국어 임베딩 (ONNX)
-psycopg[binary]>=3.2    # Supabase pgvector 조회
+psycopg[binary,pool]>=3.2  # Supabase pgvector 조회 (pool: 커넥션 재사용)
 pgvector>=0.3
 
 # LLM (provider 스위치 — openai/gemini는 openai SDK 공용)
