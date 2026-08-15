@@ -1,24 +1,42 @@
 {"text": "네, 한번 검토해보겠습니다", "source": "KR", "listener": "US", "label": "misread", "note": "완곡한 유보/거절"}
-{"text": "그건 좀 어려울 것 같은데요", "source": "KR", "listener": "US", "label": "misread", "note": "완곡 거절"}
-{"text": "생각 좀 해보겠습니다", "source": "KR", "listener": "US", "label": "misread", "note": "보류 신호"}
-{"text": "네네 알겠습니다", "source": "KR", "listener": "US", "label": "misread", "note": "동의가 아니라 '들었다'일 수 있음"}
-{"text": "일정이 좀 타이트하긴 한데 최대한 해보겠습니다", "source": "KR", "listener": "DE", "label": "misread", "note": "완곡, 저맥락 청자는 확답으로 오독"}
-{"text": "検討させていただきます", "source": "JP", "listener": "US", "label": "misread", "note": "일본식 완곡 거절"}
-{"text": "ちょっと難しいかもしれません", "source": "JP", "listener": "US", "label": "misread", "note": "사실상 거절"}
-{"text": "I will try my best to get it done", "source": "IN", "listener": "US", "label": "misread", "note": "확약이 아닐 수 있음"}
-{"text": "We will look into it and get back to you", "source": "SG", "listener": "US", "label": "misread", "note": "체면상 보류"}
-{"text": "That's an interesting idea, I'll bear it in mind", "source": "GB", "listener": "US", "label": "misread", "note": "영국식 완곡 거절"}
-{"text": "It's quite good, I suppose", "source": "GB", "listener": "US", "label": "misread", "note": "understatement, 실제론 부정적일 수 있음"}
-{"text": "네, 문제없습니다 (상사 제안에)", "source": "KR", "listener": "US", "label": "misread", "note": "위계상 이견 표현 회피"}
+{"text": "생각 좀 해보겠습니다", "source": "KR", "listener": "US", "label": "misread", "note": "즉답 회피 = 부정적 신호"}
+{"text": "일정이 좀 빠듯하지만 조율해 보겠습니다", "source": "KR", "listener": "DE", "label": "misread", "note": "완곡한 불가 신호를 확답으로 오독"}
+{"text": "네, 문제없습니다 (상사 제안에)", "source": "KR", "listener": "US", "label": "misread", "note": "위계상 거절 못 하는 상황"}
+{"text": "그 부분은 조금 더 고민이 필요할 것 같습니다", "source": "KR", "listener": "US", "label": "misread", "note": "완곡한 반대"}
+{"text": "가능하면 오늘 중으로 부탁드립니다", "source": "KR", "listener": "DE", "label": "misread", "note": "'가능하면'이 실제로는 강한 요청"}
+{"text": "제가 한번 알아보고 말씀드리겠습니다", "source": "KR", "listener": "NL", "label": "misread", "note": "확답 회피"}
+{"text": "スケジュール的に厳しい面がございます", "source": "JP", "listener": "US", "label": "misread", "note": "명확한 거절의 완곡 표현"}
+{"text": "社内で調整してみます", "source": "JP", "listener": "DE", "label": "misread", "note": "긍정적으로 들리나 실제로는 보류"}
+{"text": "I shall put in my best efforts for this", "source": "IN", "listener": "US", "label": "misread", "note": "확답 아님 — 실패 여지"}
+{"text": "We will look into it and get back to you", "source": "SG", "listener": "US", "label": "misread", "note": "구체 기한 없는 유보"}
+{"text": "That's certainly one way of looking at it", "source": "GB", "listener": "US", "label": "misread", "note": "정중한 거절"}
+{"text": "It's quite good, I suppose", "source": "GB", "listener": "US", "label": "misread", "note": "understatement — 실제로는 미흡 평가"}
+{"text": "With all due respect, I wonder if we might reconsider", "source": "GB", "listener": "DE", "label": "misread", "note": "강한 반대의 완곡 표현"}
+{"text": "Tôi sẽ cố gắng hết sức", "source": "VN", "listener": "KR", "label": "misread", "note": "최선을 다하겠다 = 확답 회피"}
+{"text": "Cái này hơi khó một chút", "source": "VN", "listener": "DE", "label": "misread", "note": "'조금 어렵다' = 사실상 불가"}
+{"text": "这个可能需要再研究一下", "source": "CN", "listener": "US", "label": "misread", "note": "추가 검토 = 완곡한 보류"}
+{"text": "我们回去商量一下", "source": "CN", "listener": "DE", "label": "misread", "note": "내부 논의 = 즉답 회피"}
+{"text": "That could be better", "source": "US", "listener": "KR", "label": "misread", "note": "직접적 부정 평가 — KR 청자에겐 강하게 들림"}
+{"text": "I disagree with that approach", "source": "US", "listener": "JP", "label": "misread", "note": "공개적 반대 — 고맥락 문화에선 강한 충돌"}
+{"text": "This needs to be redone", "source": "DE", "listener": "KR", "label": "misread", "note": "직설적 지시 — 질책으로 받아들여질 수 있음"}
+{"text": "Das funktioniert so nicht", "source": "DE", "listener": "VN", "label": "misread", "note": "독일식 직설 피드백"}
 {"text": "회의는 오후 3시에 시작합니다", "source": "KR", "listener": "US", "label": "normal", "note": "사실 전달"}
 {"text": "방금 파일 첨부해서 보냈습니다", "source": "KR", "listener": "US", "label": "normal", "note": "사실 전달"}
-{"text": "다음 회의는 금요일 오전 10시로 하겠습니다", "source": "KR", "listener": "US", "label": "normal", "note": "일정 공지"}
-{"text": "예산은 총 5천만 원입니다", "source": "KR", "listener": "US", "label": "normal", "note": "수치 사실"}
-{"text": "The build passed all tests", "source": "US", "listener": "KR", "label": "normal", "note": "사실 보고"}
-{"text": "Please find the report attached", "source": "US", "listener": "KR", "label": "normal", "note": "사실 전달"}
-{"text": "The deadline is next Monday", "source": "US", "listener": "VN", "label": "normal", "note": "일정 사실"}
-{"text": "Our office is on the third floor", "source": "US", "listener": "KR", "label": "normal", "note": "사실"}
-{"text": "안녕하세요, 오늘 회의 시작하겠습니다", "source": "KR", "listener": "US", "label": "normal", "note": "인사/시작"}
+{"text": "다음 회의는 금요일 오전 10시로 하겠습니다", "source": "KR", "listener": "US", "label": "normal", "note": "일정 확정"}
+{"text": "예산은 총 5천만 원입니다", "source": "KR", "listener": "US", "label": "normal", "note": "수치 전달"}
+{"text": "테스트 커버리지는 85%입니다", "source": "KR", "listener": "DE", "label": "normal", "note": "수치 전달"}
+{"text": "안녕하세요, 오늘 회의 시작하겠습니다", "source": "KR", "listener": "US", "label": "normal", "note": "인사·진행"}
 {"text": "감사합니다, 수고하셨습니다", "source": "KR", "listener": "US", "label": "normal", "note": "인사"}
-{"text": "화면 공유하겠습니다", "source": "KR", "listener": "US", "label": "normal", "note": "행동 안내"}
-{"text": "테스트 커버리지는 85%입니다", "source": "KR", "listener": "DE", "label": "normal", "note": "수치 사실"}
+{"text": "제 화면 보이시나요?", "source": "KR", "listener": "VN", "label": "normal", "note": "진행 확인"}
+{"text": "The deadline is next Monday", "source": "US", "listener": "VN", "label": "normal", "note": "사실 전달"}
+{"text": "The changes are now on the main branch", "source": "US", "listener": "KR", "label": "normal", "note": "사실 전달"}
+{"text": "Let me share my screen", "source": "US", "listener": "JP", "label": "normal", "note": "진행"}
+{"text": "The API returns a 200 status code", "source": "US", "listener": "IN", "label": "normal", "note": "기술 사실"}
+{"text": "Der Server läuft auf Port 8000", "source": "DE", "listener": "KR", "label": "normal", "note": "기술 사실"}
+{"text": "Cuộc họp sẽ kéo dài khoảng một tiếng", "source": "VN", "listener": "KR", "label": "normal", "note": "일정 안내"}
+{"text": "会議室は三階です", "source": "JP", "listener": "US", "label": "normal", "note": "사실 전달"}
+{"text": "我把文件发到群里了", "source": "CN", "listener": "US", "label": "normal", "note": "사실 전달"}
+{"text": "이 부분은 제가 맡아서 금요일까지 완료하겠습니다", "source": "KR", "listener": "US", "label": "normal", "note": "경계: 완곡어 없이 담당·기한 명확 — 오해 소지 없음"}
+{"text": "확인했습니다. 수정해서 오늘 안에 보내드리겠습니다", "source": "KR", "listener": "DE", "label": "normal", "note": "경계: '확인했습니다'로 시작하나 구체 약속이 뒤따름"}
+{"text": "I think we should go with option B", "source": "US", "listener": "KR", "label": "normal", "note": "경계: 'I think'가 있으나 의견 제시일 뿐"}
+{"text": "Could you send me the file when you have a moment?", "source": "GB", "listener": "KR", "label": "normal", "note": "경계: 정중한 요청 — 거절이나 불만 아님"}
