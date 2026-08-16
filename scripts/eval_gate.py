@@ -7,7 +7,8 @@ data/eval/gate_testset.jsonl(라벨: misread/normal)에 게이트 로직을 적�
     python scripts/eval_gate.py
 
 app/services/analyze/gate.py의 실제 판정식과 동일하게 맞춰야 의미가 있다:
-    predict misread  ⇔  max_sim >= base - sensitivity * cultural_distance(source, listener)
+    predict misread  ⇔  risk_sim >= base - sensitivity * cultural_distance(source, listener)
+                    and  risk_sim >= neutral_sim - gate_neutral_margin
 
 주의: 평가셋 문장이 시드 코퍼스에 들어가면 유사도가 1.0이라 무조건 맞힌다.
 시드나 평가셋을 건드린 뒤에는 scripts/check_eval_leakage.py로 누수를 확인할 것.
@@ -52,10 +53,14 @@ def main() -> None:
         dist = cultural_distance(t["source"], t["listener"])
         rows.append((risk, neut, dist, t["label"] == "misread", t))
 
-    def score(base, sens):
+    def predict(top, neut, dist, base, sens):
+        # gate.py와 동일: 문턱 통과 AND 정상표현에 "뚜렷하게" 밀리지 않을 것(마진)
+        return (top >= base - sens * dist) and (top >= neut - s.gate_neutral_margin)
+
+    def score(base, sens, subset=None):
         tp = fp = fn = tn = 0
-        for top, neut, dist, is_mis, _ in rows:
-            pred = (top >= base - sens * dist) and (top >= neut)  # gate.py와 동일
+        for top, neut, dist, is_mis, _ in subset if subset is not None else rows:
+            pred = predict(top, neut, dist, base, sens)
             tp += pred and is_mis
             fp += pred and not is_mis
             fn += (not pred) and is_mis
@@ -65,10 +70,23 @@ def main() -> None:
         f1 = 2 * prec * rec / (prec + rec) if prec + rec else 0.0
         return prec, rec, f1, (tp, fp, fn, tn)
 
+    def report(label, subset):
+        p, r, f1, cm = score(s.gate_base_threshold, s.gate_distance_sensitivity, subset)
+        print(f"  {label:<22} n={len(subset):<3} P={p:.2f} R={r:.2f} F1={f1:.3f}"
+              f"  (TP{cm[0]} FP{cm[1]} FN{cm[2]} TN{cm[3]})")
+
     print("\n=== 현재 설정 ===")
-    p, r, f1, cm = score(s.gate_base_threshold, s.gate_distance_sensitivity)
     print(f"base={s.gate_base_threshold} sens={s.gate_distance_sensitivity}"
-          f" → P={p:.2f} R={r:.2f} F1={f1:.2f}  (TP{cm[0]} FP{cm[1]} FN{cm[2]} TN{cm[3]})")
+          f" margin={s.gate_neutral_margin}")
+    report("전체", rows)
+
+    # origin별 분리 측정 — authored(합성)와 observed(실제 사례)의 성능 차이가
+    # "합성 데이터에만 맞는 모델"인지 판별하는 근거다.
+    origins = sorted({r[4].get("origin", "authored") for r in rows})
+    if len(origins) > 1:
+        print("\n=== origin별 ===")
+        for o in origins:
+            report(o, [r for r in rows if r[4].get("origin", "authored") == o])
 
     print("\n=== 문턱 스윕 (F1 최고점 찾기) ===")
     best = None
@@ -84,10 +102,11 @@ def main() -> None:
 
     print("\n=== 오분류 (틀린 것만) ===")
     for top, neut, dist, is_mis, t in rows:
-        pred = (top >= s.gate_base_threshold - s.gate_distance_sensitivity * dist) and (top >= neut)
+        pred = predict(top, neut, dist, s.gate_base_threshold, s.gate_distance_sensitivity)
         if pred != is_mis:
             kind = "FP(정상→오해)" if pred else "FN(오해→놓침)"
-            print(f"  [{kind}] risk={top:.2f} neut={neut:.2f} {t['source']}→{t['listener']}: {t['text'][:26]}")
+            print(f"  [{kind}] risk={top:.2f} neut={neut:.2f} {t.get('origin', '?')}"
+                  f" {t['source']}→{t['listener']}: {t['text'][:30]}")
 
 
 if __name__ == "__main__":
