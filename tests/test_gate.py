@@ -54,10 +54,19 @@ def test_gate_skips_on_low_similarity(monkeypatch):
     assert asyncio.run(gate.passes_gate(_req())) is False
 
 
-def test_neutral_seed_blocks_when_more_similar(monkeypatch):
-    # risk 유사도는 높지만 정상표현에 더 가까우면 통과 안 함 (오탐 제거)
-    _patch(monkeypatch, similarity=0.9, neutral=0.95)
+def test_neutral_seed_blocks_when_clearly_more_similar(monkeypatch):
+    # 정상표현이 마진을 넘어 뚜렷하게 가까우면 통과 안 함 (오탐 제거)
+    s = gate.get_settings()
+    _patch(monkeypatch, similarity=0.9, neutral=0.9 + s.gate_neutral_margin + 0.05)
     assert asyncio.run(gate.passes_gate(_req())) is False
+
+
+def test_neutral_margin_allows_narrow_gap(monkeypatch):
+    # 마진 이내 차이는 통과시킨다. 다국어 MiniLM은 변별 마진이 얇아서,
+    # STT 띄어쓰기 하나로 neutral이 살짝 앞서며 같은 완곡표현을 놓치는 일이 있었다.
+    s = gate.get_settings()
+    _patch(monkeypatch, similarity=0.9, neutral=0.9 + s.gate_neutral_margin / 2)
+    assert asyncio.run(gate.passes_gate(_req())) is True
 
 
 def test_distant_culture_lowers_threshold(monkeypatch):
@@ -84,12 +93,12 @@ def test_embed_one_caches_repeated_text(monkeypatch):
     embeddings._embed_cached.cache_clear()
     monkeypatch.setattr(embeddings, "embed_texts", fake_embed_texts)
 
-    a = embeddings.embed_one("네, 검토해보겠습니다")
-    b = embeddings.embed_one("네, 검토해보겠습니다")
+    a = embeddings.embed_one_sync("네, 검토해보겠습니다")
+    b = embeddings.embed_one_sync("네, 검토해보겠습니다")
     assert len(calls) == 1 and a == b == [0.1, 0.2, 0.3]
 
-    embeddings.embed_one("다른 문장")
+    embeddings.embed_one_sync("다른 문장")
     assert len(calls) == 2  # 텍스트가 다르면 새로 계산
 
     a.append(999)  # 호출부가 리스트를 변형해도 캐시는 오염되지 않아야 한다
-    assert embeddings.embed_one("네, 검토해보겠습니다") == [0.1, 0.2, 0.3]
+    assert embeddings.embed_one_sync("네, 검토해보겠습니다") == [0.1, 0.2, 0.3]
