@@ -53,14 +53,15 @@ def main() -> None:
         dist = cultural_distance(t["source"], t["listener"])
         rows.append((risk, neut, dist, t["label"] == "misread", t))
 
-    def predict(top, neut, dist, base, sens):
+    def predict(top, neut, dist, base, sens, margin=None):
         # gate.py와 동일: 문턱 통과 AND 정상표현에 "뚜렷하게" 밀리지 않을 것(마진)
-        return (top >= base - sens * dist) and (top >= neut - s.gate_neutral_margin)
+        m = s.gate_neutral_margin if margin is None else margin
+        return (top >= base - sens * dist) and (top >= neut - m)
 
-    def score(base, sens, subset=None):
+    def score(base, sens, subset=None, margin=None):
         tp = fp = fn = tn = 0
         for top, neut, dist, is_mis, _ in subset if subset is not None else rows:
-            pred = predict(top, neut, dist, base, sens)
+            pred = predict(top, neut, dist, base, sens, margin)
             tp += pred and is_mis
             fp += pred and not is_mis
             fn += (not pred) and is_mis
@@ -100,6 +101,36 @@ def main() -> None:
         print(f"  base={base:.2f}: F1={f1s:.2f}{mark}")
     # ponytail: '≈'는 윈도우 기본 콘솔(cp949)에서 UnicodeEncodeError로 스크립트를 죽인다
     print(f"\n권장 base_threshold ~ {best[0]:.2f} (F1={best[1]:.2f})")
+
+    # 마진 스윕 — base만 쓸면 마진 값(0.05 vs 0.10) 논쟁을 데이터로 끝낼 수 없다.
+    # 두 값이 상호작용하므로(마진이 크면 문턱이 사실상 무력화) 격자로 함께 본다.
+    print("\n=== base x margin 격자 (F1) ===")
+    margins = [0.0, 0.05, 0.10, 0.15, 0.20]
+    print("  base \\ margin " + "".join(f"{m:>7.2f}" for m in margins))
+    grid_best = None
+    for base_i in range(25, 55, 5):
+        base = base_i / 100
+        cells = []
+        for m in margins:
+            _, _, f1s, _ = score(base, s.gate_distance_sensitivity, margin=m)
+            cells.append(f1s)
+            if grid_best is None or f1s > grid_best[2]:
+                grid_best = (base, m, f1s)
+        print(f"  {base:>12.2f} " + "".join(f"{c:>7.3f}" for c in cells))
+    print(f"  최고: base={grid_best[0]:.2f} margin={grid_best[1]:.2f} F1={grid_best[2]:.3f}")
+
+    # 마진은 recall을 사는 대신 precision을 판다. 어느 쪽을 얼마나 샀는지 따로 본다.
+    print("\n=== 마진별 P/R (base 고정) ===")
+    for m in margins:
+        p, r, f1s, cm = score(s.gate_base_threshold, s.gate_distance_sensitivity, margin=m)
+        pa, ra, f1a, _ = score(s.gate_base_threshold, s.gate_distance_sensitivity,
+                               subset=[x for x in rows if x[4].get("origin", "authored") == "authored"],
+                               margin=m)
+        po, ro, f1o, _ = score(s.gate_base_threshold, s.gate_distance_sensitivity,
+                               subset=[x for x in rows if x[4].get("origin", "authored") == "observed"],
+                               margin=m)
+        print(f"  margin={m:.2f}  P={p:.2f} R={r:.2f} F1={f1s:.3f}"
+              f"  (FP{cm[1]} FN{cm[2]})   authored F1={f1a:.3f}  observed F1={f1o:.3f}")
 
     print("\n=== 오분류 (틀린 것만) ===")
     for top, neut, dist, is_mis, t in rows:
