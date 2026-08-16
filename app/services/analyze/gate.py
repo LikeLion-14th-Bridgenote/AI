@@ -6,9 +6,13 @@
 통과분만 LLM 상세 분석(각주)으로 넘어간다.
 
     effective_threshold = base - distance_sensitivity * cultural_distance(화자, 청자)
-    유사도 >= effective_threshold 인 청자가 하나라도 있으면 통과.
+    risk_sim >= effective_threshold 인 청자가 하나라도 있고,
+    risk_sim >= neutral_sim - neutral_margin 이면 통과.
 
-※ eval: scripts/eval_gate.py 로 F1 재고 base_threshold 튜닝 (risk_seed 매칭 기준).
+※ eval: scripts/eval_gate.py 로 F1 재고 튜닝. base x margin 격자를 함께 출력한다
+  (두 값은 상호작용한다 — 마진이 크면 문턱이 사실상 무력화된다).
+  실측상 판정을 가르는 건 뒤쪽 neutral 비교이고 문턱은 거의 작동하지 않는다.
+  이유는 config.py의 게이트 튜닝 주석 참고 (문화별 유사도 스케일 차이).
 """
 
 import logging

@@ -29,21 +29,27 @@ class Settings(BaseSettings):
     embed_model: str = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
     embed_dim: int = 384
 
-    # 오해 감지 게이트 튜닝 — 값 근거는 scripts/eval_gate.py (누수 없는 42건 기준)
+    # 오해 감지 게이트 튜닝 — 값 근거는 scripts/eval_gate.py (누수 없는 58건 기준)
     #
     # 판정식: risk_sim >= base - sensitivity * cultural_distance  AND  risk_sim >= neutral_sim - neutral_margin
     #
-    # 실측하면 판정을 실제로 가르는 건 뒤쪽(risk vs neutral) 비교다. 42건 중 탈락 21건이
-    # 전부 그 비교에서 걸리고 문턱에서 걸리는 건 0건이다. 즉 아래 두 값은 지금
-    # 사실상 작동하지 않는다. sens를 0.8까지 올려도 F1이 0.88~0.90에서 움직이지 않는다.
-    # 값을 지우지 않는 이유는, 코퍼스가 커져 유사도 분포가 벌어지면 다시 의미를 갖기 때문이다.
-    # 자세한 진단은 이슈 #10 참고.
-    gate_base_threshold: float = 0.35  # 스윕 최고점 (F1 0.90, P 1.00 / R 0.82, 42건)
+    # 판정을 실제로 가르는 건 뒤쪽(risk vs neutral) 비교다. 문턱은 거의 작동하지 않는데,
+    # 이유가 코퍼스 크기가 아니라 **문화별 유사도 스케일 차이**로 밝혀졌다:
+    # 한국어는 평범한 발화도 risk_seed와 0.67 닮게 나오고(영어는 0.26), 그래서 같은
+    # base=0.35가 KR에서는 23건 중 22건을 통과시키고 US에서는 12건 중 6건만 통과시킨다.
+    # 전역 상수 하나로는 두 언어를 동시에 맞출 수 없다.
+    #
+    # 문화별 문턱(그 문화의 neutral 시드가 risk 시드와 닮은 정도를 기준선으로)도 재봤는데
+    # F1 0.909로 오히려 나빴다. 문화당 표본이 3~23건으로 얇아 상수 하나로 대표가 안 된다.
+    # 같은 실험을 반복하지 않도록 적어둔다. 근본 해결은 한국어 변별력이 나은 임베딩 모델이다.
+    gate_base_threshold: float = 0.35  # 격자 최고점은 0.30 (margin 0.05와 함께 F1 0.941)
     gate_distance_sensitivity: float = 0.05  # 문화가 멀수록 문턱을 낮춤 — 현재 영향 없음
     # neutral 비교 완화 마진: risk_sim이 neutral_sim보다 이 값 이내로만 낮으면 통과시킨다.
     # 다국어 MiniLM은 마진이 얇아 STT 변형(띄어쓰기 등) 완곡표현이 neutral에 살짝 밀려 놓치는 일이 잦음.
-    # (0 = 옛 동작: 아주 미세한 차이도 탈락) — eval_gate.py로 F1 재확인 후 조정 권장.
-    gate_neutral_margin: float = 0.10
+    # margin=0으로 두면 recall이 0.75(FN 8건)로 무너지므로 마진 자체는 필요하다.
+    # 다만 58건 기준 0.05가 0.10을 모든 축에서 이긴다(recall 동일 0.97, FP 4 vs 7).
+    # 42건 시절엔 observed만 0.10이 유리해 보였는데 관찰 사례가 늘자 뒤집혔다 — 표본 착시였다.
+    gate_neutral_margin: float = 0.10  # 0.05 제안 (F1 0.886 -> 0.925). 변경은 팀 합의 후
     gate_top_k: int = 5
 
 
