@@ -98,7 +98,8 @@ def main() -> None:
             best = (base, f1s)
             mark = " ←"
         print(f"  base={base:.2f}: F1={f1s:.2f}{mark}")
-    print(f"\n권장 base_threshold ≈ {best[0]:.2f} (F1={best[1]:.2f})")
+    # ponytail: '≈'는 윈도우 기본 콘솔(cp949)에서 UnicodeEncodeError로 스크립트를 죽인다
+    print(f"\n권장 base_threshold ~ {best[0]:.2f} (F1={best[1]:.2f})")
 
     print("\n=== 오분류 (틀린 것만) ===")
     for top, neut, dist, is_mis, t in rows:
