@@ -132,6 +132,39 @@ def main() -> None:
         print(f"  margin={m:.2f}  P={p:.2f} R={r:.2f} F1={f1s:.3f}"
               f"  (FP{cm[1]} FN{cm[2]})   authored F1={f1a:.3f}  observed F1={f1o:.3f}")
 
+    # 실제 STT 전사 (data/eval/stt_real.jsonl) — 마진에 대한 유일한 실측 증거다.
+    # 위 평가셋은 전부 STT를 안 거친 텍스트라 전사 변형을 담지 못한다.
+    # 격자에서 margin 0.05가 이겨 보여도 여기서 놓치면 실서비스에서 놓친다.
+    stt_path = ROOT / "data" / "eval" / "stt_real.jsonl"
+    if stt_path.exists():
+        stt = [json.loads(l) for l in stt_path.read_text(encoding="utf-8").splitlines() if l.strip()]
+        svecs = embed_texts([t["text"] for t in stt])
+        print("\n=== 실제 STT 전사 (마진 하한 근거) ===")
+        for group, label in (("ko", "language=ko (전사 정상)"),
+                             ("multi", "language=multi (전사 손상 — 게이트로 못 고침)")):
+            rows_g = [(t, v) for t, v in zip(stt, svecs) if t.get("stt_lang") == group]
+            if not rows_g:
+                continue
+            print(f"  {label}")
+            for t, v in rows_g:
+                risk = max((_cos(v, x) for x in by_culture.get((t["source"], "risk_seed"), [])), default=0.0)
+                neut = max((_cos(v, x) for x in by_culture.get((t["source"], "neutral_seed"), [])), default=0.0)
+                dist = cultural_distance(t["source"], t["listener"])
+                marks = "".join(
+                    " O" if predict(risk, neut, dist, s.gate_base_threshold,
+                                    s.gate_distance_sensitivity, m) else " X"
+                    for m in (0.0, 0.05, 0.10, 0.15)
+                )
+                print(f"    risk={risk:.3f} neut={neut:.3f}  m0/05/10/15:{marks}   {t['text']}")
+        need = [
+            max((_cos(v, x) for x in by_culture.get((t["source"], "neutral_seed"), [])), default=0.0)
+            - max((_cos(v, x) for x in by_culture.get((t["source"], "risk_seed"), [])), default=0.0)
+            for t, v in zip(stt, svecs)
+            if t.get("stt_lang") == "ko" and t["label"] == "misread"
+        ]
+        if need:
+            print(f"  → language=ko 사례를 모두 잡으려면 margin > {max(need):.3f} 이어야 한다.")
+
     print("\n=== 오분류 (틀린 것만) ===")
     for top, neut, dist, is_mis, t in rows:
         pred = predict(top, neut, dist, s.gate_base_threshold, s.gate_distance_sensitivity)

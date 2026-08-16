@@ -46,10 +46,18 @@ class Settings(BaseSettings):
     gate_distance_sensitivity: float = 0.05  # 문화가 멀수록 문턱을 낮춤 — 현재 영향 없음
     # neutral 비교 완화 마진: risk_sim이 neutral_sim보다 이 값 이내로만 낮으면 통과시킨다.
     # 다국어 MiniLM은 마진이 얇아 STT 변형(띄어쓰기 등) 완곡표현이 neutral에 살짝 밀려 놓치는 일이 잦음.
-    # margin=0으로 두면 recall이 0.76(FN 11건)로 무너지므로 마진 자체는 필요하다.
-    # 다만 79건 기준 0.05가 0.10을 모든 축에서 이긴다(recall 동일 0.93, FP 9 vs 12).
-    # 42건 시절엔 observed만 0.10이 유리해 보였는데 관찰 사례가 11->32건이 되자 뒤집혔다 — 표본 착시였다.
-    gate_neutral_margin: float = 0.10  # 0.05 제안 (F1 0.848 -> 0.875). 변경은 팀 합의 후
+    #
+    # !! 이 값을 내리려면 반드시 data/eval/stt_real.jsonl 을 먼저 볼 것 !!
+    # 실제 Deepgram(language=ko) 전사에서 측정한 값이다:
+    #     "네, 검토해 보겠습니다."          risk 0.583 < neutral 0.637   (마진 0.054 초과 필요)
+    #     "네. 그 부분은 검토해 보겠습니다."  risk 0.531 < neutral 0.617   (마진 0.086 초과 필요)
+    # STT가 '검토해보겠습니다'를 '검토해 보겠습니다'로 띄우는 순간 시드와 어긋나 neutral에 밀린다.
+    # 0.10은 여기에 여유를 둔 값이고, 0.05로 내리면 위 두 건을 모두 놓친다.
+    #
+    # gate_testset.jsonl(79건)만 보면 0.05가 이기는 것처럼 보이지만(F1 0.848 -> 0.875)
+    # 그 평가셋은 전부 STT를 안 거친 텍스트라 전사 변형을 담고 있지 않다. 실측이 우선이다.
+    # margin=0은 recall 0.76(FN 11건)으로 무너지므로 마진 자체는 반드시 필요하다.
+    gate_neutral_margin: float = 0.10  # 하한 0.086 (실측). 내리지 말 것
     gate_top_k: int = 5
 
 
