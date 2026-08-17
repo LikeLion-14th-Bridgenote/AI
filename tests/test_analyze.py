@@ -137,7 +137,10 @@ def test_gather_rules_requests_only_rule_entries(monkeypatch):
         calls.append((culture, entry_type))
         return [{"culture": culture, "rule_text": "r", "note_type": "문화 이해", "similarity": 0.9}]
 
-    monkeypatch.setattr(service, "embed_one", lambda text: [0.0])
+    async def fake_embed(text):
+        return [0.0]
+
+    monkeypatch.setattr(service, "embed_one", fake_embed)
     monkeypatch.setattr(service, "search_by_vector", fake_search)
 
     asyncio.run(service._gather_rules(_req()))

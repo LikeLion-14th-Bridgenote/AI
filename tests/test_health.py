@@ -58,7 +58,10 @@ def _patch_deep(monkeypatch, *, corpus_rows=None, corpus_raises=False, embed_dim
 
     핸들러가 함수 안에서 import하므로 원본 모듈 속성을 갈아끼워야 한다.
     """
-    monkeypatch.setattr("app.core.embeddings.embed_one", lambda text: [0.0] * embed_dim)
+    async def fake_embed(text):
+        return [0.0] * embed_dim
+
+    monkeypatch.setattr("app.core.embeddings.embed_one", fake_embed)
 
     async def fake_search(vec, culture, top_k=5, entry_type=None):
         if corpus_raises:
